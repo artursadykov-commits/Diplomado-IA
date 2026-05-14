@@ -1,0 +1,874 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Clase Nº 3 
+Evaluación de herramientas analíticas: 
+análisis descriptivo 
+Uso de la inteligencia artificial en la 
+gestión de recursos humanos 
+Docente 
+Raicho Bojilov 
+ 
+ 
+ 
+ 
+2 
+ 
+ 
+                                      © Raicho Bojilov 
+Contenido 
+Introducción ................................ ................................ ................................ .. 4 
+1. Datos: entorno y contexto ................................ ................................ ............ 5 
+2. Análisis descriptivo: objetivos ................................ ................................ ....... 9 
+3. Resumen estadístico ................................ ................................ .................. 10 
+4. Correlaciones ................................ ................................ ............................ 12 
+5. Análisis visual ................................ ................................ ........................... 14 
+5.1 Histograma ................................ ................................ .......................... 14 
+5.2 Inspección visual de la selección durante la contratación ............................. 15 
+5.2.1 Diferencia entre histogramas y gráficos de densidad: ........................................ 16 
+5.2.2 Resultados del análisis .................................................................................. 16 
+5.3 Análisis por deciles ................................ ................................ ................ 19 
+5.3.1 Tasas incondicionales .................................................................................... 21 
+5.3.2 Tasas condicionales ...................................................................................... 22 
+5.3.3 Conclusiones preliminares ............................................................................. 24 
+Conclusiones ................................ ................................ ................................  25 
+Bibliografía ................................ ................................ ................................ ... 26 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+3 
+ 
+ 
+                                      © Raicho Bojilov 
+Resultados de aprendizaje 
+• Revisar las características de una herramienta analítica típica utilizada en el 
+proceso de selección de candidatos. 
+• Evaluar herramientas analíticas utilizando estadísticas básicas y 
+correlaciones. 
+• Realizar análisis visual de gráficos de distribución para identificar grupos 
+clave de candidatos y empleados. 
+• Realizar análisis descriptivo avanzado para explorar cómo los resultados de 
+interés son afectados por la herramienta analítica.  
+ 
+ 
+ 
+ 
+4 
+ 
+ 
+                                      © Raicho Bojilov 
+Introducción 
+En esta clase, estudiaremos cómo podemos utilizar el análisis descriptivo 
+básico para evaluar el desempeño de las herramientas analíticas en la gestión 
+de recursos humanos. Además, exploraremos el potencial del análisis 
+descriptivo en el contexto del proceso de contratación en un centro de 
+llamadas ubicado en EE. UU. de una gran empresa multinacional que utilizó 
+una herramienta analítica llamada Testscore para seleccionar candidatos para 
+entrevistar. Testscore es representativa del tipo de herramientas analíticas que 
+las empresas utilizan cada vez más para preseleccionar candidatos durante el 
+proceso de contratación. Por lo tanto, en el transcurso de nuestro análisis, no 
+solo introduciremos algunas herramientas sencillas pero útiles para el análisis 
+descriptivo, sino que también revisaremos las características y los desafíos que 
+enfrentan este tipo de herramientas analíticas. 
+Comenzaremos presentando el contexto y el entorno de la empresa 
+multinacional. Luego, revisaremos los principales componentes de la 
+encuesta utilizada para construir la herramienta analítica Testscore.  
+El primer paso de nuestro análisis empírico será revisar algunas estadísticas 
+descriptivas básicas para determinar si Testscore tiene el potencial de predecir 
+la probabilidad de retención de empleados, que es la principal preocupación de 
+los gerentes de la empresa. La correlación no implica causalidad, pero nunca 
+hay causalidad sin correlación; por esta razón, continuaremos revisando las 
+correlaciones entre Testscore y los principales resultados de interés. 
+La parte principal de nuestro análisis descriptivo estará relacionada con la 
+identificación de algunos grupos clave de candidatos y empleados, y cómo su 
+Testscore se relaciona con la rotación y el desempeño laboral. Como primer 
+paso en este proceso, exploraremos visualmente los gráficos de densidad de 
+Testscore y cómo evolucionan en las diferentes etapas del proceso de 
+contratación. Luego, exploraremos numéricamente la relación entre la 
+herramienta analítica Testscore y la retención de empleados en cada decil de 
+Testscore. Con base en nuestro análisis, concluiremoscerraremos con algunas 
+conclusiones sobre el proceso de contratación en la empresa y cómo Testscore 
+impacta los resultados del proceso de contratación. 
+ 
+ 
+ 
+ 
+ 
+5 
+ 
+ 
+                                      © Raicho Bojilov 
+1. Datos: entorno y contexto 
+Con base en datos reales que provienen de un centro de llamadas en EE. 
+UU. que gestiona el cobro de deudas en nombre de una importante empresa 
+de televisión por cable, presentamos este caso. Los operadores manejan tanto 
+llamadas entrantes como salientes. Las llamadas entrantes y las llamadas 
+salientes programadas se agregan a una lista de espera, y una central 
+automática asigna la llamada en la parte superior de la lista al operador que ha 
+estado esperando más tiempo. Además, el saldo pendiente es pequeño en 
+relación con el ingreso promedio en EE. UU. y no varía mucho entre clientes. 
+Debido a los montos reducidos, el pago en cuotas mensuales no es una opción 
+válida, y los agentes exigen el pago total del saldo. La tasa mensual de cobro 
+de los clientes es de aproximadamente el 93%. En consecuencia, la pregunta 
+clave sobre productividad es cuántas llamadas puede procesar un trabajador 
+por hora que resulten en un cobro exitoso. 
+ 
+Los equipos y supervisores varían según los turnos porque la empresa no sigue 
+ninguna política de programación deliberada en este aspecto. Los registros de 
+personal nos permiten identificar la contratación y los resultados laborales de 
+cualquier persona que haya solicitado un empleo en la empresa. La empresa 
+instituyó la versión actual de su encuesta formal de preselección en agosto de 
+2021. Su principal motivación ha sido la reducción de la rotación de 
+empleados, que es el principal impulsor de los costos laborales de la empresa. 
+ 
+A los posibles empleados se les solicita que completen una encuesta 
+diagnóstica en línea de aproximadamente 50 preguntas, que incluye las 
+siguientes categorías generales: 
+• Antecedentes educativos. 
+• Experiencia laboral previa: 
+o Años de experiencia laboral general. 
+o Años de experiencia específica relacionada. 
+o Industrias previas. 
+• Información personal y preferencias: 
+o Distancia desde el hogar. 
+o Preferencias sobre el tiempo libre. 
+ 
+ 
+ 
+ 
+6 
+ 
+ 
+                                      © Raicho Bojilov 
+o Participación en redes sociales. 
+o Movilidad geográfica. 
+o Preferencias de riesgo. 
+o Preferencias de tiempo. 
+• Perfil psicológico o de personalidad en cinco dimensiones: 
+o Abierto vs. cerrado. 
+o Conciencia vs. Impulsividad. 
+o Extrovertido vs. introvertido. 
+o Agresivo vs. agradable. 
+o Neuroticismo vs. estabilidad emocional. 
+• Habilidades lingüísticas: 
+o Conocimiento general de inglés. 
+o Conocimiento del inglés coloquial. 
+o Conocimiento del inglés en el contexto del trabajo. 
+• Habilidades analíticas: 
+o Matemáticas 
+o Lógica 
+• Habilidades profesionales: 
+o Preguntas situacionales. 
+ 
+Las categorías y preguntas de la encuesta son representativas de las 
+preguntas típicas utilizadas en herramientas analíticas diseñadas para ayudar a 
+las empresas en el proceso de selección de candidatos. 
+Basándose en las respuestas de la encuesta, la herramienta analítica asigna un 
+puntaje (Testscore) del 1 a 100 a los solicitantes, donde el puntaje 
+corresponde a la probabilidad (en porcentaje) de retención por más de seis 
+meses. A las personas con una baja probabilidad de permanecer en la empresa 
+por más de seis meses no se invitan a una entrevista. Es importante destacar 
+que los puntajes son solo para uso interno y nunca se comunican a los 
+solicitantes ni a los empleados recién contratados. Aquellos que superan algún 
+puntaje mínimo pasan a una entrevista. La empresa realiza entrevistas 
+telefónicas individuales entre los candidatos y un representante de la empresa. 
+El entrevistador es quien toma la decisión de hacer una oferta al candidato o 
+no. Los solicitantes aprobados reciben ofertas de empleo, generalmente dentro 
+ 
+ 
+ 
+ 
+7 
+ 
+ 
+                                      © Raicho Bojilov 
+de las dos semanas posteriores a la entrevista. Se considera que un candidato 
+ha aceptado la oferta si comienza a trabajar en la empresa. 
+Quienes aceptan el trabajo asisten a un programa de capacitación de dos 
+semanas, donde se introducen al trabajo, toman cursos obligatorios sobre sus 
+derechos y obligaciones legales y aprueban un examen para certificar su 
+comprensión de estos temas. La mayoría de los nuevos empleados ingresan a 
+la empresa en el nivel más bajo de la jerarquía. Más del 95% de los empleados 
+trabajan a tiempo completo. Cada estación de trabajo cuenta con un 
+computador, un teléfono y un dispositivo de grabación. Es importante destacar 
+que solo un trabajador maneja una llamada, y una central automática asigna 
+llamadas entrantes y salientes emparejando la llamada en la parte superior de 
+la cola con el operador que ha estado esperando más tiempo, haciendo que la 
+distribución de tareas sea efectivamente aleatoria entre los trabajadores. 
+Usamos como medida de desempeño un indicador diseñado por la empresa 
+que agrega señales de productividad en múltiples dimensiones, como el total 
+de deuda cobrada, el tiempo promedio de manejo de una llamada, la 
+adherencia al horario, la calidad del servicio al cliente, etc. El desempeño 
+individual se evalúa y registra regularmente, una vez cada tres meses. El 
+desempeño es un número positivo en el intervalo de 0 a 8. 
+En nuestro análisis empírico, nos enfocamos en el desempeño promedio 
+durante los primeros seis meses de empleo, que también coincide con el 
+horizonte temporal en el que la tasa de separación de empleados se estabiliza. 
+El desempeño se registra en una escala de 0 a 8, donde los números más altos 
+corresponden a mejores resultados y la dispersión de los valores en su escala 
+nos permite tratar el desempeño promedio como una variable continua en el 
+análisis empírico. Por lo tanto, nuestra medida de desempeño solo se observa 
+para los empleados que permanecen al menos seis meses en la empresa. 
+Las promociones están relacionadas con la medida de desempeño: aquellos 
+que obtienen una puntuación de 3 o más son considerados para una promoción 
+al siguiente nivel jerárquico. La compensación se basa en gran medida en un 
+salario base vinculado al nivel jerárquico y es comparable al del sector 
+manufacturero: los trabajadores con una permanencia superior a seis meses 
+reciben entre 14 y 21 dólares por hora. Es importante destacar que las 
+ 
+ 
+ 
+ 
+8 
+ 
+ 
+                                      © Raicho Bojilov 
+medidas de desempeño no están relacionadas con el proceso de contratación 
+ni con las personas involucradas en él, mientras que las decisiones de 
+promoción son tomadas por un comité de supervisores que generalmente no 
+participan en las entrevistas y decisiones de contratación de sus futuros 
+subordinados. 
+Los primeros meses de empleo son un período en el que los empleados 
+descubren si encajan bien con sus compañeros de trabajo y con la cultura de la 
+empresa. Por lo tanto, podemos considerar los primeros meses de empleo 
+como un período de selección de empleados posterior a la contratación. 
+Basándose en sus cálculos de costos e ingresos, la empresa concluye que un 
+candidato es rentable solo si es contratado y trabaja en la empresa por al 
+menos seis meses. Por esta razón, nuestro principal resultado de interés es 
+determinar si la empresa contrata candidatos que permanezcan empleados en 
+la empresa por más de seis meses. 
+  
+ 
+ 
+ 
+ 
+9 
+ 
+ 
+                                      © Raicho Bojilov 
+2. Análisis descriptivo: objetivos 
+El análisis descriptivo de los datos es el primer paso tanto en el análisis 
+preliminar antes del lanzamiento de un proyecto analítico como en la 
+evaluación de herramientas analíticas. Nos permite estudiar nuestra pregunta 
+principal utilizando herramientas simples y fáciles de entender, sin necesidad 
+de hacer suposiciones técnicas. La naturaleza libre de teoría de este primer 
+paso permite que los datos "hablen por sí mismos". Si no se encuentra ninguna 
+relación significativa y relevante en los datos, es muy probable que no exista, 
+incluso si se utilizan herramientas más avanzadas. Si los analistas encuentran 
+resultados significativos después de aplicar herramientas avanzadas, entonces, 
+como gerentes, están justificados para dudar del origen del resultado: ¿son los 
+resultados producto de alguna relación no lineal compleja en los datos, o son 
+un producto artificial del uso inadecuado de métodos estadísticos avanzados? 
+Como principio general, si existe una relación, esta debería poder detectarse 
+de alguna manera en los datos sin ningún análisis avanzado. Luego, se pueden 
+aplicar herramientas avanzadas para obtener una mejor aproximación y 
+controlar factores de confusión.  
+En el caso de la evaluación de herramientas analíticas, a menudo el análisis 
+descriptivo es todo lo que los gerentes necesitan. Si la herramienta analítica 
+funciona bien, entonces debería haber una relación visible y económicamente 
+significativa entre la variable estadística que representa la herramienta (en 
+nuestro caso, el producto de la herramienta analítica es el puntaje del 
+candidato, Testscore) y los indicadores de desempeño que son importantes 
+para la empresa (en nuestro caso, el principal indicador de interés es la 
+probabilidad de retención del empleado por más de seis meses). 
+  
+ 
+ 
+ 
+ 
+10 
+ 
+ 
+                                      © Raicho Bojilov 
+3. Resumen estadístico 
+El primer paso en el análisis descriptivo es examinar las propiedades 
+estadísticas básicas de la variable que representa la herramienta analítica 
+(Testscore), por un lado, y las variables que representan los indicadores de 
+importancia para la empresa (retención y desempeño), por otro. Las 
+estadísticas básicas que resumen las propiedades de las variables son: la 
+media, la desviación estándar, el valor mínimo y el valor máximo. 
+• El valor mínimo y el valor máximo muestran el rango de la variable. 
+• La media representa las características del candidato promedio en la 
+base de datos. 
+• La desviación estándar indica la dispersión alrededor de la media, lo 
+cual es crucial para el análisis empírico. 
+Si todos los candidatos tienen valores iguales o muy similares de Testscore, 
+entonces Testscore es una mala herramienta analítica para predecir la 
+retención y el desempeño: un Testscore constante o casi constante no puede 
+explicar la variación en los resultados individuales. Por lo tanto, en este primer 
+paso debemos verificar que exista dispersión tanto en la herramienta analítica 
+como en los indicadores de interés. 
+La Tabla 1 presenta las estadísticas descriptivas de las variables Testscore, 
+Retención y Desempeño. Muestra que en la base de datos tenemos 31.280 
+candidatos, de los cuales la empresa contrata a 3.026. Contamos con alguna 
+medida de desempeño para 1.686 empleados contratados. 
+• El Testscore promedio de los candidatos es 26,5, lo que indica que, 
+según la herramienta analítica, solo 26,5% de los candidatos tienen el 
+potencial de trabajar más de seis meses en la empresa. 
+• La desviación estándar de Testscore es 11,6, lo que implica que el 95% 
+de los candidatos tienen un Testscore en el intervalo de 3,2 a 49,7. 
+• A partir de estas observaciones, podemos concluir que hay una 
+dispersión considerable en la calidad de los candidatos según la 
+herramienta analítica, pero que la mayoría de los candidatos tienen una 
+baja probabilidad de retención. 
+ 
+ 
+ 
+ 
+ 
+11 
+ 
+ 
+                                      © Raicho Bojilov 
+Por otro lado, la tabla también muestra que solo el 36% de los empleados 
+contratados trabajan en la empresa por más de seis meses, lo que indica que 
+la empresa sufre de una alta rotación, algo común en la industria. 
+En cuanto al desempeño, observamos que: 
+• El desempeño promedio es alrededor de 3 y la desviación estándar es 
+1,3. 
+• Esto sugiere que muy pocos empleados tienen un alto desempeño 
+(superior a 5,5). 
+Nuestra primera revisión de los datos revela los principales desafíos que 
+enfrenta la empresa: 
+1. La mayoría de los candidatos no están calificados para el puesto. 
+2. La empresa sufre de una alta rotación. 
+3. El desempeño de los empleados es relativamente bajo. 
+Por el lado positivo, la herramienta analítica y la encuesta logran distinguir 
+entre diferentes tipos de candidatos, lo que se refleja en la dispersión 
+sustancial del Testscore. A continuación, exploraremos si las diferencias 
+detectadas por Testscore pueden explicar las diferencias en los resultados de 
+los empleados. 
+ 
+Variable Obs. Media 
+Desv. 
+estd. Min. Max. 
+Testscore 31280 26.508 11.626 0.73 94.46 
+Retención>6m 3026 0.362 0.481 0 1 
+Desempeño 1686 2.992 1.349 0.011669 7.141 
+Tabla 1. Resumen estadístico 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+                                      © Raicho Bojilov 
+4. Correlaciones 
+Todos sabemos que correlación no implica causalidad. Sin embargo, es muy 
+difícil que exista causalidad si ni siquiera hay correlación. En otras palabras, la 
+existencia o ausencia de correlaciones entre Testscore y los indicadores de 
+interés sugiere la posible existencia o ausencia de una relación causal. 
+La Tabla 2 muestra las correlaciones entre Testscore, Retención, Desempeño y 
+un indicador de si el empleado tiene o no educación universitaria (Edu Uni). 
+Los resultados no son muy buenos: 
+• Encontramos que la correlación entre el Testscore de los empleados 
+contratados y su retención por más de seis meses es de 0,15. 
+• No existe un estándar estadístico universal para determinar qué nivel de 
+correlación es alto o bajo, pero, intuitivamente, este resultado es una 
+mala noticia para nuestra herramienta analítica. 
+Si existiera una fuerte relación positiva entre Testscore y Retención, habríamos 
+observado una correlación mucho más alta, cercana a 1. Por ejemplo, si todos 
+los empleados que permanecen más de seis meses tuvieran un Testscore 
+superior a 30, entonces habríamos encontrado una correlación fuerte. 
+Además, no detectamos ninguna correlación entre Testscore y Desempeño. 
+Esto podría deberse a que Testscore es una herramienta analítica deficiente o a 
+que retención y desempeño no están relacionados. De hecho, la pequeña 
+correlación negativa entre Retención y Desempeño en la Tabla 2 apoya esta 
+última hipótesis. Ambas alternativas son problemáticas desde la perspectiva de 
+la gestión. 
+Finalmente, observamos que existe una baja correlación negativa entre tener 
+un título universitario y la probabilidad de retención. Este resultado no es 
+sorprendente, ya que en EE. UU. los graduados universitarios suelen 
+considerar el trabajo en un call center como temporal o transitorio. Sin 
+embargo, lo que llama la atención es que la relación negativa no sea más 
+fuerte. 
+ 
+En resumen, estas correlaciones sugieren que, en promedio: 
+ 
+ 
+ 
+ 
+13 
+ 
+ 
+                                      © Raicho Bojilov 
+1. La relación entre nuestra herramienta analítica y la retención es 
+débilmente positiva. 
+2. No hay relación entre Testscore y el desempeño. 
+Estos resultados son malas noticias para la relevancia de nuestra herramienta 
+analítica. 
+ 
+Corelación: Testscore 
+Edu. 
+Uni. Retención>6m Desempeño 
+Testscore 1       
+Edu. uni. -0.16 1     
+Retención>6m 0.15 -0.04 1   
+Desempeño -0.02 -0.01 -0.106 1 
+Tabla 2. Correlaciones 
+ 
+  
+ 
+ 
+ 
+ 
+14 
+ 
+ 
+                                      © Raicho Bojilov 
+5. Análisis visual 
+Una imagen vale más que mil palabras: muchas veces, una representación 
+visual contribuye significativamente a nuestra comprensión de los datos. 
+Además, a veces, una representación visual puede ayudar a representar las 
+características principales de los datos y a detectar posibles problemas. 
+5.1 Histograma  
+La Figura 1 presenta el histograma de la variable Testscore para los 
+candidatos que solicitan un empleo en la empresa. 
+• El eje horizontal representa la variable Testscore. 
+• El eje vertical representa el número de candidatos con cada posible 
+Testscore. 
+Para construir el histograma: 
+1. Dividimos el eje horizontal en intervalos iguales, donde cada intervalo 
+representa un rango de valores de Testscore. 
+2. Creamos rectángulos con una base en los intervalos del eje horizontal y 
+una altura correspondiente al número de candidatos cuyo puntaje cae 
+dentro de cada intervalo. 
+El histograma nos proporciona una representación visual de cómo varía la 
+variable Testscore entre los candidatos que solicitan empleo en la empresa. 
+Observamos que: 
+• La distribución presenta dos picos o modos: 
+o Uno en el rango de 14 a 18. 
+o Otro en el rango de 34 a 38. 
+• La distribución muestra asimetría positiva: 
+o Existe un grupo de candidatos con puntajes significativamente más 
+altos de 40. 
+  
+ 
+ 
+ 
+ 
+15 
+ 
+ 
+                                      © Raicho Bojilov 
+Es importante notar que el puntaje promedio de 26,5 no representa al 
+candidato típico. 
+• La inspección visual sugiere que, en nuestro análisis posterior, 
+deberíamos centrarnos en tres grupos de candidatos: 
+1. Aquellos con un puntaje alrededor de 15. 
+2. Aquellos con un puntaje alrededor de 35. 
+3. Aquellos con un puntaje superior a 40. 
+ 
+ 
+ 
+Figura 1. Histograma de la variable Testscore de los candidatos 
+5.2 Inspección visual de la selección durante la contratación 
+El proceso de contratación implica la selección y eliminación de candidatos. En 
+nuestro caso, los candidatos se caracterizan por su puntaje Testscore, 
+asignado por la herramienta analítica. Por lo tanto, es interesante analizar 
+cómo varía el Testscore de los candidatos que avanzan en cada etapa del 
+
+ 
+ 
+ 
+ 
+16 
+ 
+ 
+                                      © Raicho Bojilov 
+proceso de selección: entrevista, oferta, aceptación de oferta, etc. Esto nos 
+permite evaluar: 
+• Si los reclutadores siguen la política de la empresa de invitar a 
+entrevistas solo a candidatos con alto Testscore. 
+• Si la empresa hace ofertas a candidatos con alto Testscore. 
+• Si los candidatos con alto Testscore aceptan una oferta de trabajo en 
+caso de recibirla. 
+• Si los candidatos con alto Testscore tienen más probabilidades de 
+permanecer más de seis meses en la empresa una vez contratados. 
+Para analizar esto, podemos graficar la densidad del Testscore de los 
+candidatos en cada etapa del proceso y comparar su evolución. 
+5.2.1 Diferencia entre histogramas y gráficos de densidad: 
+En comparación con el histograma, los gráficos de densidad (kernel density) 
+ofrecen una representación más fluida y continua de la distribución de los 
+datos. En lugar de mostrar conteos brutos como en los histogramas, los 
+gráficos de densidad muestran la frecuencia relativa de los valores posibles de 
+Testscore a través de una curva suavizada. 
+5.2.2 Resultados del análisis 
+La Figura 2 presenta los gráficos de densidad del Testscore para: 
+1. Todos los candidatos que aplican. 
+2. Candidatos invitados a una entrevista. 
+3. Candidatos que reciben una oferta. 
+4. Candidatos contratados. 
+5. Candidatos contratados que permanecen más de seis meses en la 
+empresa. 
+Si los reclutadores siguen la política de la empresa, entonces los candidatos 
+con bajo Testscore no deberían aparecer en la densidad de los entrevistados, 
+es decir, su frecuencia debería ser cero o cercana a cero. En ese caso, la 
+ 
+ 
+ 
+ 
+17 
+ 
+ 
+                                      © Raicho Bojilov 
+distribución de los entrevistados debería desplazarse hacia la derecha en 
+comparación con la distribución de todos los candidatos. 
+Observemos algunos puntos clave de la Figura 2: 
+• Los reclutadores aplican la herramienta analítica como está previsto: solo 
+invitan a entrevista a candidatos con Testscore de al menos 18, lo que 
+implica que la mayoría de los candidatos con puntajes entre 14 y 18 son 
+rechazados inmediatamente. 
+• Las distribuciones de Testscore de los entrevistados y los contratados 
+son muy similares. 
+o Esto indica que, después de la preselección para entrevista, el 
+Testscore no influye en la decisión de contratación. 
+o En otras palabras, los reclutadores hacen ofertas basadas en 
+criterios distintos al Testscore. 
+• El Testscore tampoco influye en la decisión de aceptar o rechazar una 
+oferta. 
+o Esto era esperado, ya que los candidatos no conocen su propio 
+Testscore. 
+• Los empleados que permanecen más de seis meses tienen una 
+distribución similar a la de los contratados, excepto en un detalle: 
+o Algunos candidatos con Testscore menor a 40 abandonan la 
+empresa en los primeros seis meses. 
+o Los candidatos con Testscore superior a 40 tienen una mayor 
+probabilidad de permanecer en la empresa. 
+o Aunque este grupo es pequeño, es clave para la retención a largo 
+plazo. 
+  
+ 
+ 
+ 
+ 
+18 
+ 
+ 
+                                      © Raicho Bojilov 
+Basándose en los resultados, podemos concluir que: 
+1. Los candidatos con Testscore menor a 20 son rechazados antes de la 
+entrevista. 
+2. Los candidatos con Testscore superior a 40 tienen altas tasas de 
+retención. 
+o Son pocos, pero representan un grupo importante para la empresa. 
+3. El Testscore no juega un papel relevante más allá de la decisión de 
+entrevista. 
+4. Queda abierta la pregunta: 
+o ¿Qué criterios utilizan los entrevistadores para seleccionar 
+candidatos en la etapa final? 
+5. También es una incógnita: 
+o ¿Cuáles son las consideraciones de los candidatos al decidir aceptar 
+o rechazar una oferta? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+19 
+ 
+ 
+                                      © Raicho Bojilov 
+ 
+Figura 2. Distribución de Testscore para los candidatos, los entrevistados, los ofrecidos, los 
+contratados y los retenidos por más de seis meses. 
+5.3 Análisis por deciles 
+El análisis visual previo ofreció observaciones interesantes y generó nuevas 
+preguntas. En esta sección, exploraremos estos temas con mayor detalle, 
+cuantificando los efectos de interés. Para ello, consideraremos los deciles de la 
+distribución de Testscore. Los deciles se forman dividiendo a todos los 
+candidatos en diez grupos de igual tamaño según su Testscore. 
+• Los candidatos en el primer decil corresponden al 10% con los puntajes 
+más bajos. 
+• El segundo decil incluye al siguiente 10% en términos de su Testscore, y 
+así sucesivamente. 
+A continuación, analizamos las tasas de oferta, aceptación, contratación y 
+retención en cada decil. 
+  
+
+ 
+ 
+ 
+ 
+20 
+ 
+ 
+                                      © Raicho Bojilov 
+La tasa de un resultado X puede definirse de dos maneras: 
+1. Tasa incondicional: calculada en relación con el total de candidatos que 
+aplican. 
+2. Tasa condicional: calculada en relación con los candidatos que avanzan 
+a una etapa específica del proceso de contratación (generalmente la 
+etapa anterior). 
+La tasa incondicional del resultado X se define mediante la siguiente fórmula: 
+𝑇𝑎𝑠𝑎 𝑑𝑒 𝑋 = 𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑞𝑢𝑒 𝑙𝑜𝑔𝑟𝑎𝑛 𝑋
+𝑁ú𝑚𝑒𝑟𝑜 𝑡𝑜𝑡𝑎𝑙 𝑑𝑒 𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 
+En consecuencia, la tasa de oferta, por ejemplo, representa la proporción de 
+todos los candidatos que reciben una oferta: 
+𝑇𝑎𝑠𝑎 𝑑𝑒 𝑜𝑓𝑒𝑟𝑡𝑎 = 𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑐𝑜𝑛 𝑜𝑓𝑒𝑟𝑡𝑎
+𝑁ú𝑚𝑒𝑟𝑜 𝑡𝑜𝑡𝑎𝑙 𝑑𝑒 𝑐𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 
+La tasa de X, condicional a tener un resultado exitoso Z en una etapa anterior 
+del proceso de contratación, es: 
+𝑇𝑎𝑠𝑎 𝑑𝑒 𝑋 = 𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑞𝑢𝑒 𝑙𝑜𝑔𝑟𝑎𝑛 𝑋
+𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑞𝑢𝑒 𝑙𝑜𝑔𝑟𝑎𝑛 𝑍 
+Normalmente, nos interesa la probabilidad de que un candidato avance a la 
+siguiente etapa del proceso de contratación, dado que ya ha alcanzado la 
+etapa actual. Esta tasa condicional muestra cómo cambia la probabilidad de 
+éxito de una etapa a la siguiente y, por lo tanto, refleja el efecto de cada etapa 
+del proceso de contratación o empleo en el resultado general de la relación 
+laboral. Por ejemplo, la tasa de oferta, condicionada a la invitación a una 
+entrevista, se define como: 
+𝑇𝑎𝑠𝑎 𝑑𝑒 𝑜𝑓𝑒𝑟𝑡𝑎 𝑐𝑜𝑛𝑑𝑖𝑐𝑖𝑜𝑛𝑎𝑙 = 𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑐𝑜𝑛 𝑜𝑓𝑒𝑟𝑡𝑎
+𝐶𝑎𝑛𝑑𝑖𝑑𝑎𝑡𝑜𝑠 𝑒𝑛𝑡𝑟𝑒𝑣𝑖𝑠𝑡𝑎𝑑𝑜𝑠 
+Refleja la probabilidad de obtener una oferta si uno ya ha sido invitado a una 
+entrevista. 
+En la Tabla 3, analizamos las tasas incondicionales y condicionales de oferta, 
+aceptación, contratación y retención por decil. La comparación de estas tasas 
+entre deciles nos permite evaluar el efecto general del puntaje de Testscore en 
+ 
+ 
+ 
+ 
+21 
+ 
+ 
+                                      © Raicho Bojilov 
+los resultados de interés y su efecto marginal en el avance de una etapa a otra 
+del proceso de contratación/empleo. 
+5.3.1 Tasas incondicionales 
+Comenzamos observando que los candidatos previamente identificados como 
+exitosos en términos de su Testscore pertenecen a los dos deciles superiores, 
+es decir, los deciles 9 y 10. Además, notamos que los candidatos en los tres 
+deciles inferiores tienen un puntaje demasiado bajo: el análisis visual indica 
+que deberían ser eliminados en la etapa de entrevista. 
+Efectivamente, las tasas de oferta (incondicionales) por decil, presentadas en 
+la Tabla 3, confirman que casi ningún candidato en los tres deciles inferiores 
+recibe una oferta. Curiosamente, los resultados muestran que, para el resto de 
+los deciles, la tasa de oferta no aumenta de manera monótona a medida que 
+aumenta el Testscore: 
+• La tasa de oferta para el quinto decil de Testscore es 0,19. 
+• Luego, en el sexto decil disminuye a 0,15. 
+• Continúa bajando a 0,12 y 0,11 en los deciles 7 y 8. 
+• Antes de volver a subir a 0,23 y 0,53 en los dos deciles superiores. 
+Esta relación no monótona indica que los entrevistadores toman decisiones de 
+oferta basadas en criterios diferentes a los recomendados por el Testscore, 
+especialmente para los candidatos que no son ni extremadamente buenos ni 
+extremadamente malos. 
+La pregunta clave es: ¿estas intervenciones de los entrevistadores mejoran o 
+empeoran los resultados del proceso de contratación? 
+Observamos una dinámica similar en las tasas de aceptación y contratación por 
+decil. Finalmente, al concluir el proceso de contratación, solo la tasa de 
+contratación del decil superior (top 10% de Testscore) supera el 20%. 
+A continuación, analizamos el indicador principal de interés desde la 
+perspectiva de la empresa: la tasa de retención por más de seis meses. Como 
+se mencionó previamente, los candidatos en los tres deciles inferiores son 
+eliminados antes de la etapa de entrevista y nunca tienen la oportunidad de 
+trabajar en la empresa. Por lo tanto, la tasa incondicional de (contratación y) 
+ 
+ 
+ 
+ 
+22 
+ 
+ 
+                                      © Raicho Bojilov 
+retención de tales candidatos es cero o cercana a cero. Aunque las tasas de 
+contratación son más altas para los siguientes deciles, observamos que solo 
+entre 1,5% y 3,6% de los candidatos en los deciles 4 a 8 son contratados y 
+trabajan en la empresa por más de seis meses. La única excepción son los 
+candidatos en el noveno y el décimo decil: 6,5% y 14% de estos candidatos, 
+respectivamente, son contratados y trabajan en la empresa por más de seis 
+meses.  
+ 
+Testscore, 
+deciles Testscore Oferta Aceptada Contratado Retención>6m 
+1 8.78 0.002 0.002 0.002 0.001 
+2 13.37 0.006 0.004 0.003 0.002 
+3 16.80 0.010 0.010 0.008 0.003 
+4 20.52 0.103 0.085 0.062 0.015 
+5 24.41 0.193 0.162 0.134 0.036 
+6 28.31 0.156 0.133 0.108 0.033 
+7 31.82 0.120 0.103 0.090 0.027 
+8 35.05 0.113 0.094 0.082 0.027 
+9 39.05 0.231 0.202 0.178 0.065 
+10 47.02 0.533 0.468 0.407 0.140 
+Tabla 3. Tasas de oferta, aceptación, contratación y retención como porcentaje de candidatos 
+iniciales, por deciles de Testscore 
+5.3.2 Tasas condicionales 
+En la Tabla 4, exploramos las perspectivas sobre el proceso de contratación 
+que proporcionan las tasas condicionales. Primero, consideramos la tasa de 
+oferta condicional a haber sido entrevistado. Curiosamente, observamos que 
+las tasas condicionales son relativamente similares entre los deciles y no 
+vemos que un aumento en el Testscore implique una mayor probabilidad de 
+ser contratado, condicionado a haber sido entrevistado. Así, podemos concluir 
+que, si hay alguna selección adicional de candidatos en la etapa de la 
+entrevista, no se realiza en términos de su Testscore. Encontramos resultados 
+similares para la tasa de aceptación, condicionada a recibir una oferta de 
+trabajo, y para la tasa de contratación, condicionada a recibir una oferta. De 
+hecho, las tasas condicionales de aceptación y contratación sugieren que la 
+ 
+ 
+ 
+ 
+23 
+ 
+ 
+                                      © Raicho Bojilov 
+mayoría de los candidatos que reciben una oferta la aceptan y comienzan a 
+trabajar en la empresa. 
+Testscore, 
+deciles Oferta Oferta|Entrevista Aceptada Aceptada|Oferta Contratado Contratado|Oferta 
+1 0.002 0.545 0.002 0.833 0.002 1.000 
+2 0.006 0.750 0.004 0.778 0.003 0.714 
+3 0.010 0.593 0.010 0.938 0.008 0.833 
+4 0.103 0.593 0.085 0.829 0.062 0.730 
+5 0.193 0.582 0.162 0.841 0.134 0.823 
+6 0.156 0.517 0.133 0.851 0.108 0.815 
+7 0.120 0.550 0.103 0.856 0.090 0.876 
+8 0.113 0.537 0.094 0.835 0.082 0.867 
+9 0.231 0.478 0.202 0.877 0.178 0.879 
+10 0.533 0.560 0.468 0.878 0.407 0.869 
+Tabla 4. Tasas condicionales e incondicionales de oferta, aceptación y contratación, por 
+deciles de Testscore 
+En la Tabla 5, revisamos la tasa de retención por más de seis meses, 
+condicionada a la contratación. Observamos que para los deciles 4 a 10, las 
+tasas de retención condicionadas a la contratación son muy similares: entre el 
+34% y el 39% de los candidatos contratados de estos deciles permanecen en 
+la empresa por más de seis meses. Así, nuevamente podemos concluir que, si 
+existe alguna rotación no aleatoria posterior a la contratación, no está 
+impulsada por diferencias en el Testscore. Para resumir, la herramienta 
+analítica Testscore tiene su mayor y único impacto en los resultados de 
+contratación a través de su efecto en la selección de candidatos para ser 
+entrevistados. 
+Finalmente, exploramos la relación entre el Testscore de los empleados 
+retenidos por la empresa por más de seis meses y su desempeño. La última 
+columna de la Tabla 5 muestra el desempeño promedio por deciles. No 
+encontramos ninguna relación positiva entre el Testscore de los empleados 
+retenidos y su desempeño, ya que para todos los deciles el promedio está 
+alrededor de 3 o justo por debajo de este valor. Estos resultados indican que el 
+Testscore no es un determinante del desempeño de los empleados a largo 
+plazo de la empresa. 
+ 
+ 
+ 
+ 
+24 
+ 
+ 
+                                      © Raicho Bojilov 
+Testscore, 
+deciles Retención>6m Retención|Contratado=1 Desempeño 
+1 0.001 0.600 3.01 
+2 0.002 0.556 2.85 
+3 0.003 0.429 2.97 
+4 0.015 0.362 2.86 
+5 0.036 0.344 3.10 
+6 0.033 0.366 2.92 
+7 0.027 0.351 3.07 
+8 0.027 0.389 3.14 
+9 0.065 0.382 2.90 
+10 0.140 0.351 2.97 
+Tabla 5. Tasas de retención condicionales e incondicionales y rendimiento promedio, por 
+deciles de Testscore 
+5.3.3 Conclusiones preliminares 
+Podemos concluir, entonces, que los resultados discutidos anteriormente 
+muestran que las contrataciones exitosas de la empresa provienen únicamente 
+de los candidatos en los dos primeros deciles de Testscore. Además, más de 
+cuatro de cada cinco candidatos son rechazados o no aceptan una oferta. Estas 
+son personas que claramente no son adecuadas para la empresa, como lo 
+indica su Testscore, o eventualmente se dan cuenta de que no quieren trabajar 
+en la compañía. Estos resultados sugieren que la empresa necesita mejorar el 
+grupo de candidatos que atrae. Además, sugieren que el perfil de 
+contrataciones exitosas se puede encontrar entre los candidatos en el primer 
+decil en términos de su Testscore. 
+ 
+  
+ 
+ 
+ 
+ 
+25 
+ 
+ 
+                                      © Raicho Bojilov 
+Conclusiones 
+El ejercicio que hemos realizado en esta clase presenta algunas de las formas 
+básicas de realizar un análisis descriptivo para evaluar una herramienta 
+analítica, como el Testscore. Muestra el potencial que tiene el análisis 
+descriptivo simple tanto en la etapa de análisis preliminar como en la etapa de 
+evaluación de los productos finales de un proyecto analítico. En la etapa de 
+análisis preliminar: 
+• El análisis descriptivo puede ayudarnos a identificar cómo se relacionan 
+entre sí los principales resultados de interés y sus posibles 
+determinantes. 
+• También puede ayudarnos a desarrollar un conjunto de hipótesis de 
+trabajo que deben ser exploradas con herramientas más avanzadas.  
+En la etapa de evaluación del producto final, el análisis descriptivo a veces es 
+todo lo que se necesita considerar. 
+Una conclusión clave de nuestro estudio empírico en esta clase es que las 
+estadísticas descriptivas son informativas y las relaciones lineales son un buen 
+primer paso, pero muy a menudo hay mucho que ganar realizando un análisis 
+descriptivo a nivel de cuartiles, quintiles o deciles de las principales variables 
+de interés. La razón es que, a veces, no estamos interesados en lo que sucede 
+en promedio, sino en cuáles son los resultados para un grupo específico de 
+candidatos o empleados, en nuestro caso, los candidatos con los valores más 
+altos de Testscore. 
+Les dejo aquí algunas preguntas para la discusión: 
+1. Según los resultados, ¿los entrevistadores están haciendo una 
+contribución positiva a los resultados de contratación de la empresa? 
+2. Según los resultados, ¿cuáles son los elementos del proceso de 
+contratación que crees que deberían mejorarse? 
+3. Si tuvieras que tomar la decisión, ¿seguirías utilizando Testscore durante 
+el proceso de contratación? ¿Bajo qué condiciones? ¿Necesitarías 
+información adicional para tomar la decisión? 
+ 
+ 
+ 
+ 
+ 
+26 
+ 
+ 
+                                      © Raicho Bojilov 
+Bibliografía 
+Barr, Tavis; Bojilov, Raicho; Munasinghe, Lalith (2020). “Referrals and Search 
+Efficiency: Who Learns What and When?” Journal of Labor Economics, Vol. 
+37(4), pp. 1009–1059. 
+Cameron, C., Trivedi, P. (2006). Microeconometrics. Cambridge University 
+Press. 
+Hoffman, Mitchell; Kahn, Lisa B.; Li, Danielle (2018). “Discretion in Hiring.” 
+The Quarterly Journal of Economics, 133(2), 765–800. 
+Varian, Hal R. (2014). "Big Data: New Tricks for Econometrics." Journal of 
+Economic Perspectives, 28 (2): 3-28. 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+27 
+ 
+ 
+                                      © Raicho Bojilov 
+ 
+ 

@@ -1,0 +1,443 @@
+1 
+ 
+Entrega Proyecto grupal 
+Uso de la inteligencia artificial en la gestión de personas 
+ 
+Fecha de entrega 
+• El trabajo final debe entregarse al término de  la semana 7. Además, durante la 
+semana 4 estará habilitado un buzón para poder entregar avances y recibir 
+retroalimentación del tutor. 
+ 
+Objetivo general de la entrega 
+• En este proyecto investigaremos si la empresa Call Co, cuyos datos usamos , aplica 
+una forma de discriminación estadística o por preferencia de los trabajadores 
+basada en la herramienta analítica de Testscore.  
+ 
+¿En qué consiste la entrega del proyecto? 
+ 
+ 
+ 
+Elaborando un plan estratégico de contenidos 
+El entregable en plataforma es un archivo PDF: 
+• Corresponde a un informe que aborde cada etapa requerida para el trabajo, con una extensión 
+máxima de 12 planas incluyendo portada, letra Calibri, tamaño 12. 
+
+2 
+ 
+Instrucciones para el proyecto 
+El objetivo de este proyecto es que las y los participantes apliquen  el protocolo de análisis 
+descriptivo y de regresión para investigar si la empresa Call Co, cuyos datos usamos, aplica 
+una forma de discriminación estadística o por preferencia de los trabajadores basada en la 
+herramienta analítica de Testscore.  
+90% del salario de los trabajadores depende de su título. Hay 5 títulos: trainee, junior agent, 
+agent, senior agent and VP. La variable title representa el título después de los primeros 6 
+meses de trabajo y cuando la empresa determina el título de los trabajadores, se toma en 
+cuenta su desempeño durante los primeros 6 meses. "Título senior" corresponde a agente, 
+agente senior y vice-presidente (supervisor de equipo). Esta variable indica si un trabajador 
+tiene un cargo superior o no en la empresa después de los primeros 6 meses de empleo. El 
+desempeño es una variable continua entre 0 y 8. La variable “Retención” es igual a 1 si la 
+empresa contrata un candidato que permanece por más de 6 meses en la empresa, es igual 
+a 0 si la empresa no contrata un candidato o lo contrata, pero el candidato permanece por 
+menos de 6 meses. “Retención condicional” representa la retención, condicional a la 
+contratación del candidato. Es decir, “Retención condicional se observa solo si la empresa 
+contrata el candidato y es igual a 1 si el contratado permanece por más de 6 meses y 0 si el 
+contratado permanece por menos de 6 meses en la empresa. Para tener más flexibilidad en 
+nuestro análisis, consideraremos los deciles de Testscore.1 
+En la primera parte nos enfocaremos en el análisis descriptivo del impacto de Testscore 
+sobre la retención, el desempeño y ascensos.  En la segunda parte revisaremos el mismo 
+tema, utilizando análisis de regresión. En la tercera parte utilizaremos una prueba formal 
+para probar las hipótesis de discriminación estadística o por preferencia.   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1 Los deciles se forman dividiendo a todos los candidatos en diez grupos de igual tamaño según su 
+Testscore. Los candidatos en el primer decil corresponden al 10% con los puntajes más bajos. El 
+segundo decil incluye al siguiente 10% en términos de su Testscore, y así sucesivamente. 
+3 
+ 
+Instrucciones por etapa 
+ETAPA INSTRUCCIONES POR ETAPA 
+ETAPA I:  
+Análisis descriptivo 
+ 
+Como primer paso en su análisis considere una tabla donde los deciles 
+de Testscore definen las filas y las columnas son: Desempeño, 
+Retención, Retención condicional  y Título senior . Las regresiones 
+incluyen las variables típicas de control disponibles al punto de 
+contratación y mencionadas en la clase 4. 
+1. ¿Cuál es el impacto de los deciles de Testscore sobre el 
+desempeño?  
+2. ¿Sobre la retención?  
+3. ¿Sobre la probabilidad de tener un título senior?  
+ETAPA II:  
+Análisis de regresión 
+ 
+Considere las regresiones en las tablas 2, 3 y 4 que investigan el efecto 
+de los deciles de Testscore sobre el desempeño, la retención 
+incondicional y condicional y sobre la probabilidad de un ascenso a un 
+título senior, respectivamente.  
+1. ¿Cuál es el efecto de los deciles de Testscore sobre el 
+desempeño? 
+2. ¿Sobre la retención condicional?  
+3. ¿Sobre la probabilidad de tener un título senior? 
+ETAPA III:  
+Prueba de discriminación 
+Considere ahora la regresión en la tabla 5 que investiga el efecto de 
+los deciles de Testscore sobre la probabilidad de tener un título 
+superior después de los primeros 6 meses considerando todas las 
+variables disponibles al punto de las promociones. Es decir, agregue 
+el desempeño del trabajador después de los primeros 6 meses a las 
+variables en la Etapa II, Tabla 4. 
+1. ¿Cuál es el efecto del desempeño sobre la probabilidad de 
+tener un ascenso a un título senior?  
+2. ¿Los deciles de testscore tienen un efecto sobre la 
+probabilidad de tener un título superior?  
+3. ¿Hay discriminación estadística en el call center?  
+4. ¿Hay una discriminación por preferencia? 
+  
+  
+  
+ 
+ 
+ 
+4 
+ 
+Consideraciones Generales: Instrucciones y Reglas del Proyecto Grupal 
+• El trabajo se elabora de forma grupal, con un grupo conformado por un número de 5 
+integrantes, es responsabilidad del alumno tal formación y compromiso grupal durante el 
+desarrollo del curso. 
+• La coordinación inicial del grupo deberán hacerla los alumnos a través del foro de 
+coordinación de grupos (costado derecho en la plataforma), luego de eso un solo integrante 
+debe inscribir el equipo de trabajo en la plataforma. 
+• La entrega final del trabajo (obligatoria) se hace oficialmente durante el periodo 
+correspondiente a la clase 7 del curso a través del buzón del entrega habilitado para esto 
+(pestaña de trabajo grupal). 
+• El trabajo exige una forma analítica, crítica y propositiva por parte de ustedes, el trabajo 
+requerirá un formato profesional en cuanto a edición y formato.  
+• En la portada del trabajo deben mencionar el nombre completo de todos sus integrantes , 
+el correo de contacto y el número de grupo. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+5 
+ 
+Ponderación por cada etapa del informe 
+final 
+ 
+Contenido Desarrollo Esperado Ponderación 
+Asociada 
+ETAPA I:  
+Análisis descriptivo 
+ 
+Como primer paso en su análisis considere una tabla 
+donde los deciles de Testscore definen las filas y las 
+columnas son: Desempeño, Retención, Retención 
+condicional y Título senior. Las regresiones incluyen las 
+variables típicas de control disponibles al punto de 
+contratación y mencionadas en la clase 4. 
+1. Analice el impacto de cada decil sobre el 
+desempeño: 
+a. ¿El desempeño aumenta a medida que 
+aumentan los deciles?  
+b. ¿Cuál es la interpretación económica 
+de los resultados?  
+2. Analice el impacto de cada decil sobre la 
+retención condicional: 
+a. ¿La tasa de retención condicional 
+aumenta a medida que aumentan los 
+deciles?  
+b. ¿Cuál es la interpretación económica 
+de los resultados?  
+3. Analice el impacto de cada decil sobre la 
+probabilidad de tener un título senior: 
+a. ¿La probabilidad de un ascenso 
+aumenta a medida que aumentan los 
+deciles?  
+b. ¿Cuál es la interpretación económica 
+de los resultados?  
+20% 
+ETAPA II:  
+Análisis de 
+regresión 
+ 
+ 
+Considere las regresiones en las tablas 2, 3 y 4 que 
+investigan el efecto de los deciles de Testscore sobre el 
+desempeño, la retención incondicional y condicional y 
+sobre la probabilidad de un ascenso a un título senior, 
+respectivamente.  
+20% 
+6 
+ 
+1. ¿Cuál es el efecto de los deciles de Testscore 
+sobre el desempeño? 
+a. ¿Los coeficientes de los deciles de 
+Testscore, que reflejan el efecto de los 
+deciles sobre el desempeño, aumentan 
+a medida que aumentan los deciles?  
+b. ¿Los coeficientes son significativos en 
+términos estadísticos? 
+c. ¿Los coeficientes estimados son 
+importantes en términos económicos? 
+2. ¿Sobre la retención condicional?  
+a. ¿Los coeficientes de los deciles de 
+Testscore, que reflejan el efecto de los 
+deciles sobre la retención, aumentan a 
+medida que aumentan los deciles?  
+b. ¿Los coeficientes son significativos en 
+términos estadísticos? 
+c. ¿Los coeficientes estimados son 
+importantes en términos económicos? 
+3. ¿Sobre la probabilidad de tener un título 
+senior? 
+a. ¿Los coeficientes de los deciles de 
+Testscore, que reflejan el efecto de los 
+deciles sobre la probabilidad de tener 
+un ascenso, aumentan a medida que 
+aumentan los deciles?  
+b. ¿Los coeficientes son significativos en 
+términos estadísticos? 
+c. ¿Los coeficientes estimados son 
+importantes en términos económicos? 
+ETAPA III:  
+Prueba de 
+discriminación 
+Considere ahora la regresión en la tabla 5 que investiga 
+el efecto de los deciles de Testscore sobre la 
+probabilidad de tener un título superior después de los 
+primeros 6 meses considerando todas las variables 
+disponibles al punto de las promociones. Es decir, 
+agregue el desempeño del trabajador después de los 
+primeros 6 meses a las variables en la Etapa II, Tabla 4. 
+1. ¿Cuál es el efecto del desempeño sobre la 
+probabilidad de tener un ascenso a un título 
+senior? 
+a. ¿El coeficiente del desempeño tiene un 
+efecto positivo sobre la probabilidad de 
+20% 
+7 
+ 
+un ascenso?  
+b. ¿El coeficiente es significativo en 
+términos estadísticos? 
+c. ¿El coeficiente estimado es 
+importantes en términos económicos? 
+2. ¿Los deciles de testscore tienen un efecto sobre 
+la probabilidad de tener un título superior?  
+a. ¿Los coeficientes de los deciles de 
+Testscore siguien teniendo el mismo 
+efecto que en la etapa II, Tabla 4 o se 
+canbian?  
+b. ¿Sus coeficientes son significativos en 
+términos estadísticos? 
+c. ¿Los coeficientes estimados son 
+importantes en términos económicos? 
+ 
+3. ¿Hay discriminación estadistica en el call 
+center? La hipótesis de discriminación 
+estadística implica que los coeficientes de los 
+deciles de Testscore crecen a medida que los 
+deciles aumentan en Tabla 4 porque el 
+Testscore es un proxy del desempeño. Sin 
+embargo, cuando incluíamos el desempeño en 
+la misma regresión, los deciles deberían tener 
+ningún efecto sobre la probabilidad de un 
+ascenso. Basandose en la Tabla 4 y la Tabla 5, 
+¿Cuáles son los resultados de la prueba de esta 
+hipótesis?   
+4. ¿Hay una discriminación por preferencia? La 
+hipótesis de discriminación por preferencia 
+implica que los coeficientes de los deciles de 
+Testscore crecen a medida que los deciles 
+aumentan en Tabla 4. El efecto positivo 
+continua cuando incluíamos el desempeño en 
+la misma regresión. Basandose en la Tabla 4 y la 
+Tabla 5, ¿Cuáles son los resultados de la prueba 
+de esta hipótesis? 
+8 
+ 
+Recomendaciones 
+1. Basandose en su análisis empírico, ¿hay 
+alguna forma de discriminación en la 
+empresa basada en el Testscore? Si existe, 
+¿cómo se puede clasificar la forma de 
+discriminación? 
+2. ¿Cuál es su recomendación a los gerentes 
+de la empresa?  
+a. ¿Terminar o continuar el uso de la 
+herramienta Testscore? 
+b. ¿Hacer algunos cambios en su 
+aplicación en la empresa? 
+Explique las razones de sus 
+recomendaciones. 
+20% 
+Conclusiones Resumen ejecutivo, índice, redacción, ortografía, 
+uso de fuentes bibliográficas, extensión correcta 20% 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tabla 1. Análisis descriptivo por deciles 
+Testscore deciles Retención cond. Desempeño 
+Título 
+senior 
+        
+1 0.60 3.01 0.20 
+  0.52 0.76 0.42 
+        
+2 0.56 2.85 0.25 
+9 
+ 
+  0.51 1.53 0.45 
+        
+3 0.43 2.97 0.32 
+  0.50 1.19 0.47 
+        
+4 0.36 2.86 0.18 
+  0.48 1.23 0.39 
+        
+5 0.34 3.10 0.17 
+  0.48 1.31 0.38 
+        
+6 0.37 2.92 0.17 
+  0.48 1.28 0.37 
+        
+7 0.35 3.07 0.17 
+  0.48 1.40 0.37 
+        
+8 0.39 3.14 0.16 
+  0.49 1.51 0.37 
+        
+9 0.38 2.90 0.18 
+  0.49 1.37 0.39 
+        
+10 0.35 2.97 0.14 
+  0.48 1.35 0.34 
+        
+Promedios: 0.36 2.99 0.16 
+  0.48 1.35 0.37 
+Nota: El primer número en cada celda es el promedio y el segundo 
+es la desviación estandar.  
+ 
+ 
+ 
+ 
+10 
+ 
+ 
+Tabla 3. Regresión de análisis del efecto de Testscore sobre el desempeño 
+Desempeño Coeficiente Desv. Estd. Estad t P>t 
+95% interval de 
+confianza 
+              
+Testscore deciles:             
+2 -0.034 0.545 -0.06 0.951 -1.102 1.035 
+3 -0.019 0.478 -0.04 0.968 -0.956 0.918 
+4 -0.111 0.437 -0.25 0.8 -0.968 0.746 
+5 0.151 0.433 0.35 0.727 -0.698 1.000 
+6 -0.024 0.435 -0.06 0.956 -0.876 0.828 
+7 0.129 0.436 0.3 0.767 -0.725 0.983 
+8 0.201 0.436 0.46 0.645 -0.654 1.056 
+9 -0.038 0.434 -0.09 0.929 -0.889 0.812 
+10 0.040 0.433 0.09 0.926 -0.808 0.889 
+              
+Variables de control Incluidas           
+Obs. 3,372           
+R-cuadrado 0.0154           
+Nota: Las variables de control omitidas incluyen: referencia laboral, edad, distancia a casa, raza, genero, 
+educación. Ver la clase 4 para más detalles. Todos los coeficientes de deciles se interpretan con respecto a 
+la categoría de referencia, el efecto del primer decil de Testscore (cuyo efecto está incluido en el constante)  
+ 
+Tabla 2. Regresión de análisis del efecto de Testscore sobre la retención condicional 
+Retención condicional Coeficiente Desv. Estd. Estad t P>t 
+[95% interval de 
+confianza 
+              
+Testscore deciles:             
+2 -0.084 0.189 -0.44 0.657 -0.455 0.287 
+3 -0.213 0.169 -1.26 0.208 -0.543 0.118 
+4 -0.273 0.155 -1.76 0.078 -0.577 0.030 
+5 -0.292 0.153 -1.9 0.057 -0.592 0.008 
+6 -0.269 0.153 -1.75 0.079 -0.570 0.032 
+7 -0.285 0.154 -1.86 0.063 -0.587 0.016 
+8 -0.251 0.154 -1.63 0.102 -0.553 0.050 
+9 -0.253 0.153 -1.65 0.098 -0.552 0.047 
+10 -0.294 0.153 -1.93 0.054 -0.593 0.005 
+              
+Variables de control Incluidas           
+Obs. 6,052           
+R-cuadrado 0.014           
+Nota: Las variables de control omitidas incluyen: referencia laboral, edad, distancia a casa, raza, 
+genero, educación. Ver la clase 4 para más detalles. Todos los coeficientes de deciles se interpretan 
+con respecto a la categoria de referencia, el efecto del primer decil de Testscore (cuyo efecto está 
+incluido en el constante)  
+11 
+ 
+Tabla 4. Regresión de análisis del efecto de Testscore sobre la probabilidad de un ascenso 
+Título senior Coeficiente Desv. Estd. Estad t P>t 
+[95% interval de 
+confianza 
+              
+Testscore deciles:             
+2 0.061 0.138 0.44 0.659 -0.209 0.330 
+3 0.021 0.120 0.17 0.864 -0.216 0.257 
+4 -0.032 0.110 -0.29 0.768 -0.248 0.183 
+5 -0.027 0.109 -0.25 0.803 -0.241 0.187 
+6 -0.016 0.110 -0.15 0.88 -0.231 0.198 
+7 -0.024 0.110 -0.22 0.825 -0.239 0.191 
+8 -0.009 0.110 -0.08 0.935 -0.224 0.206 
+9 -0.011 0.109 -0.1 0.919 -0.225 0.203 
+10 -0.029 0.109 -0.27 0.788 -0.243 0.185 
+              
+Variables de control Incluidas           
+Obs. 3,372           
+R-cuadrado 0.156           
+Nota: Las variables de control omitidas incluyen: referencia laboral, edad, distancia a casa, raza, genero, 
+educación. Ver la clase 4 para más detalles. Todos los coeficientes de deciles se interpretan con 
+respecto a la categoria de referencia, el efecto del primer decil de Testscore (cuyo efecto está incluido 
+en el constante)  
+ 
+Tabla 5. Regresión de análisis del efecto de Testscore sobre la probabilidad de un ascenso, incluyendo el 
+desempeño (observado al punto de la decisión de ascensos) 
+Título senior Coeficiente Desv. Estd. Estad t P>t [95% interval de confianza 
+              
+Desempeño 0.059 0.004 13.07 0 0.050 0.067 
+              
+Testscore deciles:           
+2 0.063 0.141 0.45 0.656 -0.214 0.340 
+3 0.004 0.124 0.03 0.976 -0.240 0.247 
+4 -0.032 0.114 -0.28 0.777 -0.255 0.190 
+5 -0.020 0.112 -0.17 0.862 -0.240 0.201 
+6 -0.006 0.113 -0.05 0.958 -0.227 0.215 
+7 -0.032 0.113 -0.29 0.775 -0.254 0.189 
+8 -0.010 0.113 -0.09 0.929 -0.232 0.212 
+9 0.005 0.113 0.04 0.965 -0.216 0.226 
+10 0.007 0.112 0.06 0.948 -0.213 0.228 
+Variables de control Incluidas           
+Obs. 3,372           
+R-cuadrado 0.156           
+Nota: El desempeño se observa al tiempo de evaluación y la toma de decisión de ascensos. Las variables 
+de control omitidas incluyen: referencia laboral, edad, distancia a casa, raza, genero, educación. Ver la 
+clase 4 para más detalles. Todos los coeficientes de deciles se interpretan con respecto a la categoría de 
+referencia, el efecto del primer decil de Testscore (cuyo efecto está incluido en el constante)  
+ 

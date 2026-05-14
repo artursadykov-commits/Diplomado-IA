@@ -1,0 +1,1221 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Clase Nº 4 
+Evaluación de Herramientas Analíticas: 
+Regresiones 
+Uso de la inteligencia artificial en la 
+gestión de recursos humanos 
+Docente 
+Raicho Bojilov 
+ 
+ 
+ 
+ 
+2 
+ 
+ 
+                                      © Raicho Bojilov 
+Contenido 
+Introducción ................................ ................................ ................................ .. 4 
+1. Visión de conjuntos ................................ ................................ ..................... 5 
+2. Protocolo ................................ ................................ ................................ ... 7 
+3. Efecto de Testscore sobre el desempeño................................ ......................... 9 
+4. Efecto de Testscore sobre la retención ................................ .......................... 21 
+Conclusiones ................................ ................................ ................................  30 
+Bibliografía ................................ ................................ ................................ ... 31 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+3 
+ 
+ 
+                                      © Raicho Bojilov 
+Resultados de aprendizaje 
+• Estimar regresiones lineales o no lineales simples y multivariadas para 
+evaluar herramientas analíticas o realizar análisis exploratorios. 
+• Interpretar y analizar los resultados de estas regresiones. 
+• Sintetizar sus conclusiones en una recomendación de política.  
+ 
+ 
+ 
+ 
+4 
+ 
+ 
+                                      © Raicho Bojilov 
+Introducción 
+En esta clase, exploraremos cómo realizar análisis de regresión lineal y no 
+lineal con el fin de evaluar una herramienta analítica. Los métodos que 
+utilizaremos también pueden aplicarse para estimar el efecto de una variable 
+de interés, como una política o una característica individual de los 
+trabajadores, sobre indicadores clave de la empresa.  
+Comenzaremos con una visión general del valor agregado del análisis de 
+regresión en comparación con el análisis descriptivo y luego destacaremos los 
+límites y restricciones del análisis de regresión. Finalizaremos la parte teórica 
+de la clase con la presentación de un protocolo para el uso de regresiones 
+lineales o no lineales. Luego, aplicaremos el protocolo para investigar si la 
+herramienta analítica Testscore, presentada en la clase anterior, puede 
+predecir el desempeño a largo plazo de los empleados de la empresa cuyos 
+datos utilizamos. Avanzaremos paso a paso: primero, realizaremos un análisis 
+visual de la relación entre Testscore y el desempeño; luego, consideraremos 
+una regresión lineal del desempeño sobre Testscore, seguida de la introducción 
+de otras variables exploratorias que potencialmente pueden afectar el 
+desempeño. Posteriormente, consideraremos una especificación no lineal que 
+es simple pero suficiente para revelar si existe una relación más compleja 
+entre Testscore y el desempeño. En la última parte de la clase, finalizaremos 
+nuestra evaluación de Testscore en su función principal como predictor de la 
+probabilidad de retención en caso de contratación. Para ello, aplicaremos el 
+protocolo de análisis de regresión al estudio de la relación entre Testscore y el 
+indicador de retención de empleados recién contratados por más de seis 
+meses. Los resultados corroboran nuestros hallazgos del análisis descriptivo de 
+la clase anterior. Consideraremos el tema del análisis de regresión desde la 
+perspectiva del gerente, no del analista experto en métodos estadísticos y 
+computacionales avanzados. Por esta razón, el enfoque estará en proporcionar 
+las herramientas más simples que permitan alcanzar el objetivo. En otras 
+palabras, dados los objetivos y restricciones que enfrentan los gerentes, nos 
+detendremos en el punto donde los beneficios marginales de introducir 
+técnicas más avanzadas no justifican sus costos. Como veremos al final de la 
+clase, el análisis descriptivo y las regresiones básicas pueden ser de gran 
+utilidad para realizar y evaluar análisis empíricos.  
+ 
+ 
+ 
+ 
+5 
+ 
+ 
+                                      © Raicho Bojilov 
+1. Visión de conjuntos 
+El análisis de regresión ofrece la base para estimar la relación entre los 
+principales indicadores de interés para las empresas, por un lado, y las 
+herramientas analíticas, características individuales o políticas, por otro. Sus 
+principales ventajas son: 
+• La relación se estima controlando por el efecto de muchas otras variables 
+explicativas (variables que pueden tener un impacto en el resultado y 
+pueden estar correlacionadas con las herramientas analíticas, 
+características o políticas de la empresa). 
+• También se estima la precisión de la relación, controlando por el efecto 
+de otras variables explicativas plausibles. La precisión de la estimación, 
+en combinación con los parámetros estimados, nos permite evaluar la 
+significancia estadística y económica de la relación que estudiamos. 
+• El análisis de regresión proporciona diversas medidas de la calidad de la 
+aproximación de la relación entre el resultado de interés y el conjunto de 
+variables explicativas. 
+Con respecto a este último punto, una cosa es saber que una variable es un 
+predictor estadística y económicamente significativo de un resultado, y una 
+cosa muy distinta es tener confianza en los tamaños de los efectos estimados. 
+En términos simples, la diferencia es la misma que entre las respuestas a las 
+preguntas “¿sí o no?” y “¿cuánto?”. 
+Estas ventajas, sin embargo, tienen sus costos. La aplicación de modelos 
+analíticos más avanzados, como las regresiones lineales y no lineales, requiere 
+que se cumplan ciertos supuestos teóricos, si el proceso de estimación ha de 
+ser válido. Con frecuencia, presionados por la necesidad de obtener resultados 
+rápidamente, los analistas no verifican estos supuestos. A veces, los supuestos 
+son tan técnicos y abstractos que, en la práctica, no se pueden verificar. Su 
+trabajo como gerente no incluye, ni puede incluir, el control sobre la correcta 
+implementación de los métodos estadísticos, pero sí usted es responsable de 
+las decisiones que se toman en base a la aplicación de estos métodos. En este 
+contexto, mis sugerencias son: 
+• Empieza con lo simple: usa estadísticas descriptivas y análisis visual para 
+llegar a un conjunto preliminar de resultados. 
+ 
+ 
+ 
+ 
+6 
+ 
+ 
+                                      © Raicho Bojilov 
+• Mantén el análisis lo más simple posible: esfuérzate por alcanzar los 
+objetivos del proyecto analítico con el menor nivel posible de complejidad 
+técnica. Solo argumentos muy sólidos deberían convencerle de avanzar 
+del uso de regresiones lineales y no linea les simples hacia métodos 
+estadísticos más exóticos y avanzados. 
+• Aplique siempre pruebas de sentido común: ¿Tienen sentido los 
+resultados? ¿Corroboran su intuición y la intuición de otros involucrados? 
+¿Qué sucede en los casos extremos (por ejemplo, los mejores o peores 
+Testscores)? 
+• Exige siempre una “historia”: un párrafo que explique qué encuentra el 
+análisis y por qué. 
+  
+ 
+ 
+ 
+ 
+7 
+ 
+ 
+                                      © Raicho Bojilov 
+2. Protocolo 
+Lo que sigue es una secuencia de pasos que sugiero que usted siga cuando 
+estime el efecto de una herramienta analítica o cuando realice un análisis 
+exploratorio: 
+1. Representación visual y análisis de la relación entre el resultado de 
+interés, por un lado, y la herramienta analítica, características 
+individuales o variable de política, por otro. 
+2. División de la base de datos en dos partes: una muestra de 
+entrenamiento (training sample) y una muestra de prueba (testing 
+sample). La muestra de entrenamiento se utiliza para la estimación del 
+modelo, y la muestra de prueba se utiliza para evaluar la calidad del 
+modelo. 
+3. Regresión lineal del resultado de interés en la herramienta 
+analítica, características individuales o política: Esta regresión 
+representa la mejor aproximación lineal de la relación entre la variable 
+de resultado y la variable explicativa principal. Es similar en naturaleza al 
+coeficiente de correlación, pero tiene algunas ventajas: no solo 
+proporciona un coeficiente que representa la relación, sino también una 
+medida de la precisión con la que estimamos ese coeficiente y un 
+indicador de la calidad de la aproximación lograda por el modelo. 
+4. Regresión lineal del paso 3, incluyendo variables adicionales que 
+puedan tener un impacto sobre la variable de resultado. Algunas de 
+estas variables probablemente estén correlacionadas con la herramienta 
+analítica, la característica individual o la variable de política. En 
+consecuencia, si las omitimos de la regresión y, por tanto, las dejamos 
+en el término de error (que representa el efecto sobre el resultado de 
+aquellas variables no incluidas explícitamente en la regresión o que 
+pueden tener un efecto, pero no observamos), entonces nuestra variable 
+explicativa principal y el error estarán correlacionados. La existencia de 
+tal correlación no cumpla un supuesto clave para la estimación válida de 
+modelos de regresión: que el término de error sea independiente de las 
+variables explicativas. La inclusión de todas las variables explicativas 
+adicionales plausibles reduce el riesgo de este problema, conocido como 
+sesgo por variable omitida. Además, fortalece nuestra confianza en la 
+credibilidad de la relación estimada entre el resultado de interés y las 
+variables explicativas. 
+5. Regresión no lineal del resultado sobre los deciles (o quintiles o 
+cuartiles) de la herramienta analítica, característica individual o 
+ 
+ 
+ 
+ 
+8 
+ 
+ 
+                                      © Raicho Bojilov 
+política: Cada decil de la herramienta analítica se representa mediante 
+un indicador que toma el valor 1 si, para una observación determinada, 
+la variable explicativa asociada tiene su valor en el decil correspondiente, 
+y 0 en caso contrario. El coeficiente de este indicador capta el efecto 
+promedio de la variable explicativa para ese decil. Representar la 
+variable explicativa mediante sus deciles (también conocido como 
+discretización) nos permite investigar, mediante una regresión simple, si 
+el resultado y la variable explicativa están relacionados a través de una 
+relación no lineal más compleja. 
+6. Regresión no lineal del paso 5, incluyendo las variables de control 
+adicionales del paso 4: Nuevamente, aquí el objetivo es investigar si la 
+relación encontrada en el paso 5 se mantiene o cambia. Si cambia, 
+puede ser útil identificar qué variable(s) adicional(es) llevaron al cambio, 
+estimando regresiones con diferentes subconjuntos de las variables 
+explicativas adicionales. 
+7. Evaluar la calidad de la especificación final usando la muestra de 
+prueba: Elegimos nuestra especificación final en base a la significancia 
+de los coeficientes estimados y a la calidad general de la aproximación. 
+Se puede calcular el R-cuadrado para los datos de prueba, lo cual 
+proporciona una estadística resumen sobre la calidad de la aproximación. 
+Además, se recomienda graficar los promedios observados y predichos 
+de la variable de resultado por decil. De esta forma, podemos explorar 
+cómo varía la calidad de la regresión a lo largo de la distribución de la 
+variable de resultado. Por ejemplo, a una empresa podría interesarle 
+especialmente ver si su herramienta analítica puede identificar tanto a 
+los mejores como a los peores desempeños desde el momento de la 
+contratación. 
+8. Resumen de los resultados del análisis en un párrafo que explique 
+cuáles son los resultados y por qué: la historia. 
+  
+ 
+ 
+ 
+ 
+9 
+ 
+ 
+                                      © Raicho Bojilov 
+3. Efecto de Testscore sobre el desempeño 
+En esta sección, aplicamos el protocolo para evaluar el efecto de Testscore 
+sobre el desempeño. Realizamos esta aplicación en primer lugar porque 
+corresponde al caso estándar en el que la variable de resultado es continua. 
+Testscore está diseñado para predecir la retención de empleados recién 
+contratados por más de seis meses, pero bien podríamos estar interesados en 
+saber si también tiene poder predictivo sobre el desempeño de los empleados 
+de largo plazo, es decir, aquellos contratados que permanecen en la empresa 
+por más de seis meses. 
+Paso 1: Análisis visual 
+La Figura 1 muestra los valores observados de Testscore y desempeño. Ofrece 
+una representación visual de la relación entre ambas variables en los datos. La 
+nube amorfa de puntos en la figura sugiere que no existe una relación clara 
+entre el desempeño y Testscore.  
+ 
+ 
+Figura 1. Gráfico del desempeño observado y Testscore 
+
+ 
+ 
+ 
+ 
+10 
+ 
+ 
+                                      © Raicho Bojilov 
+Paso 2: Datos de entrenamiento y de prueba 
+Dividimos aleatoriamente los datos disponibles en dos muestras: una 
+submuestra de entrenamiento que contiene 1003 observaciones (60% de los 
+datos) y una submuestra de prueba que contiene 683 observaciones (40% de 
+los datos). No existe una regla fija sobre el tamaño de las dos muestras, pero 
+la tradición es asignar 60% para la muestra de entrenamiento y 40% para la 
+de prueba. Como se discutió en la clase 1, la idea detrás de esta división es 
+utilizar la muestra de entrenamiento como “datos disponibles del pasado” para 
+estimar la relación, y luego aplicar el modelo estimado a los “datos futuros” 
+representados por la muestra de prueba. 
+Paso 3: Regresión lineal simple 
+La Tabla 1 presenta los resultados de la regresión lineal del desempeño sobre 
+Testscore. La mayoría de las aplicaciones estadísticas entregan una tabla 
+similar como parte del resultado estándar de la estimación de la regresión. Por 
+supuesto, puede usar Copilot para generar una tabla similar en Excel. La 
+primera columna incluye los nombres de las variables explicativas. Es 
+importante notar que la lista de regresores siempre incluye la constante. La 
+constante es el punto de referencia en la regresión: representa el valor de la 
+variable de resultado cuando todas las otras variables son iguales a cero. 
+También es igual al promedio si ninguna de las otras variables tiene un efecto 
+estadísticamente significativo sobre el resultado. 
+La segunda columna presenta los coeficientes estimados de las variables 
+explicativas.  
+La tercera columna muestra las desviaciones estándar de los coeficientes 
+estimados. La desviación estándar, en este contexto, es una medida de la 
+precisión con la que se estima el coeficiente. Si la desviación estándar es alta, 
+entonces la precisión de la estimación del coeficiente es baja y deberíamos 
+tener menos confianza en que el coeficiente real de la variable explicativa esté 
+cerca del valor estimado reportado en la columna 1.  
+La cuarta columna reporta los estadísticos t para cada coeficiente estimado. Se 
+obtiene dividiendo el coeficiente estimado de la columna 1 entre la desviación 
+estándar de la columna 2. El estadístico t tiene su propia distribución, que es 
+similar a la normal, pero con algo más de masa en los extremos. Comparando 
+ 
+ 
+ 
+ 
+11 
+ 
+ 
+                                      © Raicho Bojilov 
+el valor estimado en la columna 4 con algunos valores críticos de la 
+distribución del estadístico t, se puede determinar si el coeficiente reportado en 
+la columna 1 es significativamente distinto de 0 en términos estadísticos. 
+El valor crítico usual que se utiliza para evaluar la significancia de un 
+coeficiente es el asociado al nivel de significancia del 5%. “Nivel de 
+significancia del 5%” significa que hay un 95% de probabilidad de que el 
+coeficiente sea distinto de cero. El valor crítico asociado al nivel de significancia 
+del 5% en muestras grandes es 1.96, o un número ligeramente inferior a 2 en 
+muestras más pequeñas. Por lo tanto, como regla general, si el estadístico t 
+estimado de un coeficiente es menos que 2, podemos rechazar la hipótesis de 
+que el coeficiente es 0 con un nivel de significancia del 5%. 
+La quinta columna reporta la probabilidad actual de que el coeficiente sea igual 
+a cero, basada en el estadístico t estimado en la columna 3. De hecho, esta 
+columna facilita la evaluación de si un coeficiente es estadísticamente 
+significativo. Si la probabilidad reportada es menor a 0.05, entonces el 
+coeficiente es estadísticamente distinto de cero al nivel de significancia del 5%. 
+Finalmente, la sexta y la séptima columna reportan, respectivamente, el límite 
+inferior y superior del intervalo de confianza del 95%. Los valores presentados 
+en estas columnas indican el intervalo en el cual, en el 95% de los casos, se 
+encuentra el valor del coeficiente de la variable explicativa. Si este intervalo 
+incluye el valor 0, entonces podemos concluir que no podemos rechazar la 
+hipótesis nula de que el coeficiente estimado es igual a cero. El intervalo se 
+calcula utilizando el estadístico t de la columna 3 y su distribución asociada. 
+Representa una forma alternativa de evaluar si el coeficiente estimado es 
+estadísticamente distinto de cero. Cabe destacar la complementariedad de los 
+resultados reportados: si el valor 0 está fuera del intervalo de confianza del 
+95% para la ubicación del coeficiente de la variable explicativa, la probabilidad 
+de que el coeficiente sea igual a 0 es menor al 5%. En consecuencia, podemos 
+rechazar la hipótesis de que el coeficiente es igual a 0 al nivel de significancia 
+del 5%. 
+Enfocándonos en los resultados reportados en la Tabla 1, encontramos que el 
+coeficiente estimado de Testscore es cercano a cero y, de hecho, negativo: -
+0.001. En términos de interpretación, esto implica que un aumento de 1 punto 
+ 
+ 
+ 
+ 
+12 
+ 
+ 
+                                      © Raicho Bojilov 
+en Testscore conduce a una reducción en el desempeño de 0.001. Así, un 
+puntaje perfecto de 100 resultaría en una reducción del desempeño de 0.1, lo 
+que equivale aproximadamente al 3% del desempeño promedio. Para el 
+Testscore promedio, el efecto estimado sobre el desempeño es de -0.026, lo 
+cual representa menos del 1% del desempeño promedio. Por lo tanto, 
+podemos concluir que, según los resultados de la regresión, el efecto de 
+Testscore sobre el desempeño es prácticamente nulo. 
+La desviación estándar del coeficiente estimado es de 0.003, lo que es tres veces 
+mayor que el propio coeficiente estimado. Por lo tanto, el estadístico t reportado 
+en la columna 4 es mucho menor que 2 y, como lo confirma la columna 5, no 
+podemos rechazar la hipótesis de que el coeficiente de Testscore en la regresión 
+es cero. Estos resultados implican que Testscore no es un buen predictor del 
+desempeño. Esta conclusión se confirma con el R -cuadrado reportado de 0. De 
+hecho, ¡el R-cuadrado ajustado es negativo! 
+ 
+Desempeño Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+[95% 
+conf. Interval.] 
+              
+Testscore -0.001 0.003 -0.38 0.701 
+-
+0.007 0.005 
+              
+Const 3.034 0.116 26.26 0 2.808 3.261 
+              
+Obs: 1003           
+R-quadrado 0.0001           
+R-quadrado, 
+ajustado 
+-
+0.0005           
+Tabla 1. Regresión lineal del desempeño sobre Testscore 
+ 
+Paso 4: Regresión lineal multivariada 
+La Tabla 2 reporta los resultados de la regresión lineal del desempeño sobre 
+Testscore y otras variables explicativas. Dado que la regresión incluye más de 
+una variable explicativa, se denomina multivariada. La lista de variables 
+explicativas adicionales incluye: si el trabajador llegó a la empresa mediante 
+una recomendación o no, la edad, si tiene educación universitaria o no, la 
+ 
+ 
+ 
+ 
+13 
+ 
+ 
+                                      © Raicho Bojilov 
+distancia desde su hogar, si el trabajador es afrodescendiente, hispano o 
+mujer, y la experiencia laboral general y específica. Las dos últimas variables 
+son categóricas en el sentido de que incluyen como posibles valores varias 
+opciones, como “sin experiencia”, “2-5 años” de experiencia, etc. Para incluir 
+estas variables en la regresión, creamos un indicador para cada posible 
+respuesta, donde el indicador toma el valor de 1 si el trabajador ha dado la 
+respuesta asociada y 0 en caso contrario. 
+Los resultados muestran que el coeficiente de Testscore se mantiene cercano a 
+cero y no es estadísticamente significativo al nivel del 5%, incluso después de 
+la inclusión de las variables explicativas adicionales. Además, encontramos que 
+ninguna de las nuevas variables explicativas tiene un efecto estadísticamente 
+significativo sobre el desempeño. El coeficiente más cercano a ser 
+estadísticamente significativo es el asociado a tener menos de un año de 
+experiencia laboral específica relacionada: el coeficiente estimado es 0.229, 
+con una desviación estándar de 0.122 y un estadístico t asociado de 1.88. 
+Correspondientemente, la probabilidad de que el coeficiente estimado sea igual 
+a cero es de 0.06, lo cual es mayor que 0.05, la probabilidad crítica asociada al 
+nivel de significancia del 5%. Por lo tanto, no podemos rechazar la hipótesis de 
+que el coeficiente es igual a cero al nivel de significancia del 5%. Llegamos a la 
+misma conclusión al examinar el intervalo de confianza del 95%: incluye el 
+valor 0. 
+Concluimos con una nota sobre la interpretación de las variables indicadoras, 
+como las posibles respuestas a la pregunta sobre experiencia general y 
+específica. La pregunta sobre experiencia laboral específica incluye las 
+siguientes opciones: 
+• Ninguna 
+• Exp. específica 
+• 1-12 meses 
+• 1-2 años 
+• 2-5 años 
+• Más de 5 años 
+ 
+ 
+ 
+ 
+ 
+14 
+ 
+ 
+                                      © Raicho Bojilov 
+Sin embargo, es importante notar que la regresión excluye el indicador para 
+“Ninguna”. Estas exclusiones se hacen por defecto para evitar un problema 
+técnico llamado multicolinealidad (o indeterminación de los coeficientes). La 
+categoría “Ninguna” se conoce como la categoría de referencia para la 
+interpretación de los coeficientes de los diferentes niveles de experiencia 
+específica. 
+La exclusión de “Ninguna” de la regresión implica que su efecto está capturado 
+por la constante. Los coeficientes del resto de las categorías de experiencia 
+específica se interpretan de forma relativa respecto a esta categoría de 
+referencia. Por ejemplo, el coeficiente de 0.229 para la categoría “menos de un 
+año” de experiencia específica significa que, en comparación con no tener 
+experiencia, tener algo de experiencia específica (pero menos de un año) lleva 
+a un aumento en el desempeño de 0.229. 
+ 
+Desempeño Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+[95% 
+conf. Interval.] 
+              
+Testscore 0.001 0.005 0.18 0.861 
+-
+0.009 0.011 
+Referencia -0.114 0.090 -1.26 0.207 
+-
+0.291 0.063 
+Edad 0.000 0.000 -0.26 0.798 0.000 0.000 
+Edu. Uni. -0.148 0.095 -1.56 0.118 
+-
+0.333 0.038 
+Distancia a casa -0.001 0.002 -0.32 0.745 
+-
+0.004 0.003 
+Negro -0.128 0.106 -1.21 0.227 
+-
+0.335 0.080 
+Hispanico -0.610 0.406 -1.5 0.133 
+-
+1.407 0.187 
+Mujer -0.098 0.108 -0.91 0.365 
+-
+0.310 0.114 
+              
+Exp. general:             
+2-5 años 0.071 0.143 0.5 0.619 
+-
+0.209 0.352 
+ 
+ 
+ 
+ 
+15 
+ 
+ 
+                                      © Raicho Bojilov 
+5-10 años 0.130 0.158 0.83 0.409 
+-
+0.180 0.441 
+10-15 años 0.057 0.216 0.26 0.791 
+-
+0.367 0.481 
+>15 años -0.014 0.252 -0.06 0.954 
+-
+0.508 0.479 
+              
+Exp. específica             
+1-12 meses 0.229 0.122 1.88 0.061 
+-
+0.011 0.469 
+1-2 años -0.058 0.142 -0.41 0.684 
+-
+0.336 0.220 
+2-5 años 0.189 0.136 1.39 0.166 
+-
+0.079 0.457 
+>5 años -0.142 0.209 -0.68 0.498 
+-
+0.552 0.268 
+              
+Const. 3.763 0.706 5.33 0 2.377 5.149 
+              
+Obs.: 1003           
+R-quadrado 0.0692           
+R-quadrado, 
+ajustado 0.0099           
+Tabla 2. Regresión lineal multivariada del desempeño en Testscore y otras variables 
+explicativas. 
+Paso 5: Regresión no lineal simple 
+La Tabla 3 presenta los resultados de la regresión del desempeño en los 
+indicadores de los deciles de Testscore. La categoría omitida o de referencia es 
+el primer decil, y todos los demás coeficientes se interpretan como el efecto de 
+Testscore en el decil asociado con respecto a este. Los resultados muestran 
+que ninguno de los deciles 2 a 10 tiene un efecto en el desempeño 
+significativamente diferente del efecto de Testscore en el primer decil. En otras 
+palabras, los aumentos en Testscore no provocan cambios (aumentos) en el 
+desempeño y, en consecuencia, Testscore no tiene efecto sobre el desempeño. 
+La ausencia de un efecto significativo de la variación en Testscore sobre el 
+desempeño también implica que la regresión simple no lineal de la Tabla 3 no 
+ 
+ 
+ 
+ 
+16 
+ 
+ 
+                                      © Raicho Bojilov 
+mejora la calidad del ajuste, medida por R-cuadrado, con respecto a la 
+regresión lineal simple de la Tabla 1. 
+ Tabla 3. Regresión no lineal simple del desempeño en los deciles de Testscore 
+Paso 6: Regresión no lineal multivariada 
+La Tabla 4 presenta la regresión del desempeño sobre los deciles del Testscore 
+y los otros variables explicativas presentadas en la Tabla 2. Los resultados 
+muestran que la introducción de variables explicativas adicionales no genera 
+cambios en el efecto estimado de Testscore sobre el desempeño: Testscore 
+sigue sin tener ningún efecto sobre el desempeño. Ninguna de las nuevas 
+variables explicativas tiene un efecto significativo sobre el desempeño. No es 
+sorprendente que la introducción de muchas nuevas variables explicativas lleve 
+a un aumento automático del R-cuadrado a 0.07. Sin embargo, una vez que se 
+ajusta el R-cuadrado por el número de variables explicativas adicionales, la 
+proporción de la variación explicada por los datos cae a solo un 1%. 
+ 
+ 
+Desempeño Coef. 
+Desv. 
+Estd. 
+Estad. 
+T 
+Prob 
+(Coef=0) 
+[95% 
+conf. interval] 
+              
+Testscore, deciles           
+2 -0.565 1.016 -0.56 0.578 -2.560 1.429 
+3 0.102 0.852 0.12 0.905 -1.571 1.775 
+4 0.001 0.782 0 0.999 -1.535 1.536 
+5 0.178 0.776 0.23 0.819 -1.345 1.701 
+6 -0.103 0.777 -0.13 0.894 -1.629 1.422 
+7 0.070 0.779 0.09 0.928 -1.459 1.600 
+8 0.137 0.782 0.18 0.861 -1.397 1.671 
+9 -0.022 0.777 -0.03 0.977 -1.547 1.502 
+10 0.046 0.772 0.06 0.952 -1.469 1.562 
+              
+Const 2.967 0.768 3.86 0 1.459 4.475 
+              
+Obs: 1,003           
+R-quadrado 0.0048           
+R-quadrado, 
+ajustado 
+-
+0.0042           
+ 
+ 
+ 
+ 
+17 
+ 
+ 
+                                      © Raicho Bojilov 
+Desempeño Coef. 
+Desv. 
+estd. Estad. T 
+Prob. 
+(Coef.=0) 
+[95% 
+conf. interval.] 
+              
+Testscore, deciles           
+2 -0.400 1.035 -0.39 0.699 -2.431 1.631 
+3 0.237 0.875 0.27 0.786 -1.479 1.953 
+4 0.128 0.807 0.16 0.874 -1.455 1.711 
+5 0.367 0.797 0.46 0.645 -1.197 1.932 
+6 0.065 0.801 0.08 0.936 -1.507 1.636 
+7 0.203 0.802 0.25 0.8 -1.370 1.776 
+8 0.406 0.808 0.5 0.616 -1.180 1.992 
+9 0.204 0.805 0.25 0.8 -1.375 1.783 
+10 0.240 0.805 0.3 0.766 -1.339 1.819 
+              
+Referencia -0.114 0.090 -1.26 0.208 -0.292 0.064 
+Edad 0.000 0.000 -0.29 0.769 0.000 0.000 
+Edu. uni -0.146 0.095 -1.53 0.126 -0.333 0.041 
+Distancia a casa -0.001 0.002 -0.37 0.714 -0.005 0.003 
+Negro -0.133 0.106 -1.25 0.212 -0.341 0.076 
+Hispanico -0.582 0.413 -1.41 0.159 -1.393 0.229 
+Mujer -0.103 0.109 -0.95 0.342 -0.317 0.110 
+              
+Exp. general:           
+2-5 años 0.075 0.144 0.52 0.602 -0.208 0.358 
+5-10 años 0.122 0.159 0.77 0.441 -0.189 0.434 
+10-15 años 0.049 0.218 0.23 0.821 -0.378 0.476 
+>15 años -0.031 0.253 -0.12 0.901 -0.528 0.465 
+              
+Exp. específica           
+1-12 meses 0.234 0.123 1.91 0.057 -0.007 0.475 
+1-2 años -0.052 0.143 -0.36 0.715 -0.332 0.228 
+2-5 años 0.199 0.138 1.44 0.151 -0.072 0.470 
+>5 años -0.085 0.212 -0.4 0.689 -0.500 0.331 
+              
+Const. 3.581 1.037 3.45 0.001 1.546 5.616 
+              
+Obs.: 1,003           
+R-quadrado 0.0755           
+R-quadrado, 
+ajustado 0.0082           
+Tabla 4. Regresión no lineal del desempeño en los deciles de Testscore y otras variables 
+explicativas. 
+ 
+ 
+ 
+ 
+18 
+ 
+ 
+                                      © Raicho Bojilov 
+Paso 7: Calidad de la aproximación 
+La especificación más general que hemos estimado es la del paso 6. La Figura 
+2 grafica el desempeño observado y el desempeño predicho para cada uno de 
+los deciles de desempeño. De esta manera, podemos evaluar qué tan cercanas 
+están las predicciones de nuestro modelo a los datos realmente observados. 
+Para cada decil, la figura también reporta el intervalo de confianza del 95% del 
+promedio predicho del desempeño. En este contexto, nos interesa saber si el 
+promedio del desempeño observado cae dentro del intervalo de confianza del 
+95% del desempeño predicho para los distintos deciles. 
+No es sorprendente que encontremos que el desempeño observado y el 
+predicho son muy diferentes para la mayoría de los deciles, excepto el decil 6. 
+De hecho, la figura muestra que, con la excepción del decil 6, el promedio del 
+desempeño observado está siempre fuera del intervalo de confianza del 95% 
+del promedio del desempeño predicho, siendo la brecha entre el desempeño 
+observado y el predicho más pequeña en los deciles 4 al 6. 
+ 
+Figura 2. Desempeño observado y predicho para cada uno de los deciles del desempeño 
+observado. 
+ 
+
+ 
+ 
+ 
+ 
+19 
+ 
+ 
+                                      © Raicho Bojilov 
+Paso 8: Conclusiones 
+Testscore no predice el desempeño de los empleados de largo plazo en la 
+empresa (es decir, aquellos que permanecen en la empresa por más de seis 
+meses). También observamos que otras variables explicativas, como la 
+experiencia —tanto específica como general—, la educación, la edad, etc., no 
+tienen ningún efecto sobre el desempeño de los empleados de largo plazo. Por 
+lo tanto, el desempeño de los empleados de largo plazo parece estar 
+determinado por factores muy específicos que no están relacionados con el 
+Testscore ni con otros predictores típicos. 
+Concluimos nuestro análisis con una importante advertencia. Nuestro análisis 
+anterior se centra en la relación entre Testscore y el desempeño solo para los 
+empleados de largo plazo. Con base en esto, no podemos extrapolar y concluir 
+que Testscore tampoco esté relacionada con el desempeño en la población de 
+candidatos. La Figura 3 muestra por qué dicha extrapolación es errónea. 
+Supongamos que existe una fuerte relación positiva entre el rendimiento y la 
+puntuación de la prueba en la población de candidatos. En primer lugar, por 
+defecto, no observamos el rendimiento de los candidatos que no son 
+contratados. Si el proceso de contratación resulta en la eliminación de los 
+candidatos con un puntaje bajo, no dispondremos de datos que podamos 
+utilizar para estimar la relación entre el desempeño y Testscore en la parte 
+inferior de la distribución de Testscore. En segundo lugar, no observamos el 
+desempeño de los empleados que dejan la empresa durante sus primeros 
+meses de empleo. Si solo los empleados con un Testscore muy alto 
+permanecen empleados durante más de seis meses, tampoco podemos estimar 
+la relación entre el desempeño y el Testscore para el resto de los empleados 
+recién contratados. 
+ 
+ 
+ 
+ 
+20 
+ 
+ 
+                                      © Raicho Bojilov 
+Figura 3. Consecuencias de la selección para la estimación de la relación entre Testscore y el 
+desempeño. 
+  
+Desempeño 
+Testscore 
+Retenidos por  
+más de 6 meses 
+Candidatos 
+ 
+ 
+ 
+ 
+21 
+ 
+ 
+                                      © Raicho Bojilov 
+4. Efecto de Testscore sobre la retención 
+Comenzamos el análisis del efecto de Testscore en la retención especificando el 
+problema de su evaluación. Por definición, Testscore es una herramienta que 
+mide la probabilidad de que un candidato permanezca empleado en la empresa 
+durante más de seis meses. Esto implica implícitamente que el candidato tiene 
+la oportunidad de permanecer en la empresa durante más de seis meses; es 
+decir, que es contratado. Por esta razón, la variable de resultado correcta que 
+podemos utilizar para evaluar Testscore es la retención condicionada a la 
+contratación. En términos técnicos, nuestra variable de resultado de principal 
+interés es un indicador que es: 
+• 1 si el individuo es contratado y retenido durante más de 6 meses; 
+• 0 si el individuo es contratado, pero no retenido durante más de 6 
+meses; 
+• No observado si el individuo no es contratado (es decir, tenemos una 
+observación faltante). 
+Otra complicación de nuestro trabajo es que la variable de resultado no es 
+continua, ya que solo toma dos valores: 0 o 1. En consecuencia, algunos 
+supuestos técnicos formales sobre las propiedades del error en la regresión no 
+se cumplen. Sin embargo, los resultados de la estimación de regresiones 
+lineales con variables de resultado binarias son sorprendentemente buenos, 
+especialmente si la probabilidad promedio no se acerca a 0 ni a 1. Existen 
+modelos más avanzados para estimar la relación entre la retención, la 
+condicional a la contratación (la retención, a partir de ahora, para simplificar) y 
+la puntuación de la prueba: modelos de regresión probabilística. Sin embargo, 
+para estimar estos modelos, es necesario hacer algunas suposiciones fuertes 
+(a menudo poco realistas) sobre la distribución de los errores en las 
+regresiones. 
+En los dos modelos de regresión probabilística más populares, los errores 
+deben seguir la distribución normal de la distribución de valores extremos. En 
+consecuencia, en la práctica, nos encontramos ante la opción de elegir entre 
+dos métodos de estimación, cada uno con sus propias y significativas 
+desventajas. Como se comentó en la sección 3, en tales circunstancias, mi 
+sugerencia es seleccionar la opción más simple y transparente (con la clara 
+ 
+ 
+ 
+ 
+22 
+ 
+ 
+                                      © Raicho Bojilov 
+comprensión de que puede presentar problemas). Por esta razón, en esta 
+sección utilizaremos regresiones lineales para estimar la relación entre la 
+retención y Testscore. 
+Paso 1: Análisis visual 
+La Figura 4 presenta la relación entre la retención promedio observada y la 
+retención promedio predicha por Testscore para cada decil. En nuestro análisis, 
+debemos descartar los resultados de los 4 deciles inferiores, ya que sabemos, 
+a partir de nuestro análisis descriptivo, que los reclutadores rechazan a la 
+mayoría de estos candidatos antes de la entrevista. Por lo tanto, nos 
+centramos en los resultados de los deciles 5 a 10. Observamos que la dinámica 
+de Testscore y la retención son muy diferentes. De hecho, solo en el caso del 
+decil 9, observamos que la retención promedio observada se encuentra dentro 
+del intervalo de confianza del 95% de la probabilidad de retención predicha por 
+Testscore. Estos resultados sugieren que no existe una relación positiva sólida 
+entre la retención de los empleados recién contratados y Testscore. 
+ 
+Figura 4. Comparación de la retención promedio observada condicional a la contratación y la 
+retención prevista por Testscore, por deciles de Testscore. 
+
+ 
+ 
+ 
+ 
+23 
+ 
+ 
+                                      © Raicho Bojilov 
+Paso 2: Muestras de entrenamiento y de prueba 
+La base de datos incluye un total de 3018 observaciones. Asignamos 
+aleatoriamente el 60 % de las observaciones a la submuestra de 
+entrenamiento y el resto a la muestra de prueba. 
+Paso 3: Regresión lineal simple 
+La Tabla 5 presenta la regresión lineal simple de la retención de empleados 
+recién contratados durante más de 6 meses en Testscore. Los resultados 
+muestran que el coeficiente de Testscore no es estadísticamente diferente de 
+cero con un nivel de significancia del 5%. La calidad de la aproximación 
+también es baja.  
+Retención| 
+Contratación Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+95% conf. 
+interval. 
+              
+Testscore 0.000 0.001 -0.14 0.887 -0.002 0.002 
+              
+Const. 0.379 0.044 8.57 0 0.293 0.466 
+              
+Obs.: 1,811           
+R-quadrado 0           
+R-quadrado, 
+ajustado 
+-
+0.0005           
+Tabla 5. Regresión lineal simple de la retención condicional en Testscore 
+Paso 4: Regresión lineal multivariada 
+La Tabla 6 muestra los resultados de la reestimación de la regresión lineal del 
+Paso 2, incluyendo también otras variables explicativas. Las variables 
+explicativas adicionales que incluimos corresponden al conjunto estándar que 
+ya utilizamos en la sección anterior. La introducción de estas nuevas variables 
+explicativas no modifica nuestras estimaciones del efecto Testscore sobre la 
+retención: el coeficiente Testscore se mantiene bajo y no es estadísticamente 
+diferente de cero. La inclusión de nuevas variables explicativas tampoco 
+mejora la calidad del ajuste de la regresión. 
+Del conjunto de variables explicativas adicionales, solo el indicador de raza 
+"Negra" y el indicador de experiencia específica entre 2 y 5 años tienen un 
+ 
+ 
+ 
+ 
+24 
+ 
+ 
+                                      © Raicho Bojilov 
+efecto estadísticamente significativo sobre la retención. Ser "negro" aumenta 
+la probabilidad de retención en 0,08 en comparación con la categoría de 
+referencia de personas blancas. Este coeficiente sugiere la presencia de 
+discriminación contra las personas negras en el mercado laboral local o la 
+presencia de discriminación contra las personas blancas en la empresa. La 
+primera posibilidad parece más probable. Una experiencia específica de entre 2 
+y 5 años aumenta la probabilidad de retención en 0,11 respecto a la categoría 
+de referencia de empleados sin experiencia laboral específica. Este efecto es 
+muy significativo desde el punto de vista económico: 0,11 equivale 
+aproximadamente a un tercio de la probabilidad promedio de retención de los 
+nuevos empleados durante más de seis meses. En español, un nuevo 
+empleado promedio con una experiencia específica de entre 2 y 5 años tiene 
+más de un tercio más de probabilidades de permanecer en la empresa durante 
+más de seis meses que un nuevo empleado promedio sin experiencia 
+específica. 
+Retención| 
+Contratación Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+ 95% conf. 
+interval. 
+              
+Testscore 0.000 0.002 -0.22 0.827 
+-
+0.003 0.003 
+              
+Referencia 0.025 0.025 1.03 0.305 
+-
+0.023 0.074 
+Edad 0.000 0.000 1.53 0.126 0.000 0.000 
+Edu. uni -0.004 0.026 -0.17 0.868 
+-
+0.055 0.046 
+Distancia a casa 0.000 0.001 0.01 0.99 
+-
+0.001 0.001 
+Negro 0.082 0.027 3.04 0.002 0.029 0.135 
+Hispanico -0.010 0.094 -0.11 0.915 
+-
+0.194 0.174 
+Mujer 0.013 0.028 0.46 0.648 
+-
+0.042 0.068 
+              
+Exp. general:             
+2-5 años -0.036 0.039 -0.92 0.357 
+-
+0.112 0.040 
+ 
+ 
+ 
+ 
+25 
+ 
+ 
+                                      © Raicho Bojilov 
+5-10 años 0.005 0.043 0.11 0.911 
+-
+0.079 0.088 
+10-15 años -0.066 0.055 -1.2 0.231 
+-
+0.175 0.042 
+>15 años 0.016 0.068 0.24 0.81 
+-
+0.117 0.150 
+              
+Exp. específica             
+1-12 meses -0.044 0.032 -1.38 0.167 
+-
+0.107 0.019 
+1-2 años 0.023 0.037 0.63 0.531 
+-
+0.049 0.095 
+2-5 años 0.109 0.039 2.82 0.005 0.033 0.185 
+>5 años -0.024 0.053 -0.45 0.654 
+-
+0.128 0.081 
+              
+Const. 0.339 0.144 2.35 0.019 0.057 0.621 
+              
+Obs: 1,811           
+R-quadrado 0.05           
+R-quadrado, 
+ajustado 0.0015           
+Tabla 6. Regresión lineal multivariada de la retención condicional en Testscore y otras 
+variables explicativas 
+Paso 5: Regresión simple no lineal 
+La Tabla 7 muestra que considerar una relación no lineal entre la retención y 
+Testscore no mejora la calidad de la aproximación. Para todos los deciles de 
+Testscore, no se observa un efecto estadísticamente significativo en la 
+retención. 
+  
+ 
+ 
+ 
+ 
+26 
+ 
+ 
+                                      © Raicho Bojilov 
+Retención| 
+Contratación Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+[95% 
+conf. Interval.] 
+              
+Testscore, deciles             
+2 -0.167 0.370 -0.45 0.652 
+-
+0.892 0.559 
+3 -0.310 0.308 -1 0.315 
+-
+0.914 0.295 
+4 -0.236 0.285 -0.83 0.407 
+-
+0.795 0.323 
+5 -0.307 0.282 -1.09 0.276 
+-
+0.860 0.246 
+6 -0.268 0.282 -0.95 0.343 
+-
+0.821 0.285 
+7 -0.317 0.283 -1.12 0.262 
+-
+0.871 0.237 
+8 -0.290 0.283 -1.02 0.307 
+-
+0.845 0.266 
+9 -0.290 0.281 -1.03 0.303 
+-
+0.841 0.262 
+10 -0.301 0.280 -1.07 0.283 
+-
+0.851 0.249 
+              
+Const. 0.667 0.280 2.38 0.017 0.118 1.215 
+              
+Obs.: 1,811           
+R-quadrado 0.002           
+R-quadrado, 
+ajustado 
+-
+0.0029           
+Tabla 7. Regresión no lineal simple de la retención condicional en los deciles de Testscore  
+Paso 6: Regresión multivariada no lineal 
+La inclusión de variables explicativas adicionales en la regresión no lineal no 
+modifica nuestras conclusiones sobre el efecto de Testscore en la retención, en 
+comparación con la regresión no lineal simple. Los detalles de los resultados se 
+presentan en la Tabla 8. Estos confirman nuestros hallazgos previos sobre el 
+efecto de la raza y la experiencia laboral específica en la retención. 
+ 
+ 
+ 
+ 
+ 
+27 
+ 
+ 
+                                      © Raicho Bojilov 
+Retención| 
+Contratación Coef. 
+Desv. 
+estd. 
+Estad. 
+T 
+Prob. 
+(Coef.=0) 
+[95% 
+conf. interval.] 
+              
+Testscore, deciles             
+2 -0.244 0.371 -0.66 0.51 
+-
+0.971 0.483 
+3 -0.425 0.311 -1.37 0.172 
+-
+1.035 0.186 
+4 -0.312 0.287 -1.09 0.278 
+-
+0.875 0.252 
+5 -0.410 0.284 -1.44 0.149 
+-
+0.967 0.147 
+6 -0.378 0.285 -1.33 0.185 
+-
+0.936 0.181 
+7 -0.425 0.286 -1.49 0.137 
+-
+0.985 0.135 
+8 -0.416 0.287 -1.45 0.147 
+-
+0.979 0.146 
+9 -0.402 0.285 -1.41 0.16 
+-
+0.961 0.158 
+10 -0.415 0.286 -1.45 0.146 
+-
+0.975 0.145 
+              
+Referencia 0.029 0.025 1.18 0.239 
+-
+0.019 0.077 
+Edad 0.000 0.000 1.56 0.119 0.000 0.000 
+Edu. uni -0.010 0.026 -0.38 0.703 
+-
+0.061 0.041 
+Distancia a casa 0.000 0.001 0.02 0.986 
+-
+0.001 0.001 
+Negro 0.083 0.027 3.06 0.002 0.030 0.136 
+Hispanico -0.012 0.094 -0.12 0.903 
+-
+0.197 0.173 
+Mujer 0.011 0.028 0.39 0.695 
+-
+0.044 0.066 
+              
+Exp. general:             
+2-5 años -0.036 0.039 -0.92 0.36 
+-
+0.112 0.041 
+ 
+ 
+ 
+ 
+28 
+ 
+ 
+                                      © Raicho Bojilov 
+5-10 años 0.004 0.043 0.09 0.932 
+-
+0.080 0.087 
+10-15 años -0.069 0.056 -1.25 0.212 
+-
+0.178 0.040 
+>15 años 0.017 0.068 0.25 0.805 
+-
+0.117 0.151 
+              
+Exp. específica             
+1-12 meses -0.045 0.032 -1.41 0.159 
+-
+0.108 0.018 
+1-2 años 0.022 0.037 0.59 0.555 
+-
+0.050 0.094 
+2-5 años 0.106 0.039 2.71 0.007 0.029 0.182 
+>5 años -0.032 0.054 -0.59 0.553 
+-
+0.137 0.073 
+              
+Const. 0.739 0.310 2.38 0.017 0.130 1.347 
+              
+Obs.: 1,811           
+R-quadrado 0.0532           
+R-quadrado, 
+ajustado 0.019           
+Tabla 8. Regresión no lineal multivariada de la retención condicional en los deciles de 
+Testscore 
+Paso 7: Calidad de la aproximación 
+La especificación más general que hemos estimado es la del paso 6. La Figura 
+5 representa gráficamente la retención real y prevista para cada decil de 
+retención predicha. De esta manera, podemos evaluar la proximidad entre la 
+retención realmente observada y las predicciones de nuestro modelo. Para 
+cada decil, la figura también indica el intervalo de confianza del 95% de la 
+retención media prevista. En este contexto, nos gustaría saber si la retención 
+media realmente observada se encuentra dentro del intervalo de confianza del 
+95% de la retención prevista para los diferentes deciles. 
+No es sorprendente que encontremos que el rendimiento observado y pre dicho 
+es muy diferente para la mayoría de los deciles, excepto para los deciles 4 a 6. 
+De hecho, la figura muestra que, con la excepción del decil 6, la retención media 
+ 
+ 
+ 
+ 
+29 
+ 
+ 
+                                      © Raicho Bojilov 
+observada siempre está fuera del intervalo de confianza del 95% de la retención 
+media prevista. 
+ 
+Figura 5. Retención observada y predicha para cada uno de los deciles de retención predicha  
+  
+
+ 
+ 
+ 
+ 
+30 
+ 
+ 
+                                      © Raicho Bojilov 
+Conclusiones 
+Los reclutadores utilizan Testscore para preseleccionar candidatos para la 
+entrevista. La mayoría de los candidatos con un Testscore en la parte inferior 
+de la distribución de Testscore son rechazados en esta etapa. Con la condición 
+de que se realice una entrevista, Testscore no predice ni la contratación ni los 
+resultados laborales. En particular, todos los tipos de análisis de regresión, 
+desde la regresión lineal simple hasta la regresión no lineal multivariada, 
+muestran que Testscore no predice la probabilidad de retención de los nuevos 
+empleados durante más de seis meses. También observamos que Testscore es 
+irrelevante para el desempeño de los empleados de largo plazo. Con base en 
+estos hallazgos, no recomendamos continuar utilizando la herramienta analítica 
+Testscore. 
+Preguntas para discusión: 
+1. ¿Corre la empresa el riesgo de enfrentar problemas legales debido 
+al uso de Testscore? 
+2. Si existiera una fuerte relación positiva entre Testscore y la 
+retención, ¿qué patrones habríamos observado en los datos y el 
+análisis descriptivo? 
+3. Si existiera una fuerte relación positiva entre Testscore y el 
+rendimiento, ¿qué patrones habríamos observado en los datos y el 
+análisis descriptivo? 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+31 
+ 
+ 
+                                      © Raicho Bojilov 
+Bibliografía 
+Barr, Tavis; Bojilov, Raicho; Munasinghe, Lalith (2020). “Referrals and Search 
+Efficiency: Who Learns What and When?”  Journal of Labor Economics, Vol. 
+37(4), pp. 1009–1059. 
+Cameron, C., Trivedi, P. (2006). Microeconometrics. Cambridge University 
+Press. 
+Varian, Hal R. (2014). "Big Data: New Tricks for Econometrics." Journal of 
+Economic Perspectives, 28 (2): 3-28. 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+32 
+ 
+ 
+                                      © Raicho Bojilov 
+ 
+ 
